@@ -1,7 +1,7 @@
 print("Hello, gamer!")
 #vārdi, sākums
 
-
+print("Paula")
 #taustiņu pārbaude
 
 

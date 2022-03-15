@@ -1,11 +1,14 @@
-print("Hello, gamer!")
+print("TURTLES' RALLY LIEPĀJA")
 #vārdi, sākums
 
-print("Paula")
+print("Spēles izstrādātāji: Paula Lībeka, Loreta Aleksejeva, Keita Laimiņa")
+print("SPIED 'SPACE', LAI SĀKTU SPĒLI")
 #taustiņu pārbaude
-
-
-
+import keyboard
+while True:
+    if keyboard.is_pressed("space"):
+        print("STARTS")
+        break
 #kontrolpunktu faila nolasīšana
 
 

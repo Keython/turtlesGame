@@ -9,8 +9,16 @@ while True:
     if keyboard.is_pressed("space"):
         print("STARTS")
         break
-#kontrolpunktu faila nolasīšana
 
+#laikapstākļu ģenerators
+import random
+apstakli=["slikti", "labi"]
+laikapstakli = random.choice(apstakli)
+
+#kontrolpunktu faila nolasīšana
+with open('kontrolpunkti.txt') as f:
+    contents = f.read()
+    print(contents)
 
 #kontrolpunktu tabula
 
@@ -18,13 +26,23 @@ while True:
 #indentifikatora atbilstības pārbaude
 
 
-#akumolatora uzskaite, a0=100%
+#akumolatora uzskaite, a0=100%, vienmēr var uzspiest
+akumulators_sakuma = 100
+cels = 140
+if laikapstakli == "labi":
+    akumulators_izteretais= cels*100/140 
+    print(akumulators_izteretais)
+akumulators=50
+
+print("Ja vēlies pārbaudīt akumulatora stāvokli, spied taustiņu 'a'")
+while True:
+    if keyboard.is_pressed("a"):
+        print("Uzlādes līmenis ir: "+str(akumulators)+"%")
+        break
 
 
 #laikapstākļu faktors mašīnas nobraukumam
 
-
-#laikapstākļu ģenerators
 
 
 #uzlādes līmeņa, km nolasīšana jebkurā laikā

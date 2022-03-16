@@ -3,12 +3,14 @@ print("TURTLES' RALLY LIEPĀJA")
 
 print("Spēles izstrādātāji: Paula Lībeka, Loreta Aleksejeva, Keita Laimiņa")
 print("SPIED 'SPACE', LAI SĀKTU SPĒLI")
+
 #taustiņu pārbaude
 import keyboard
 while True:
     if keyboard.is_pressed("space"):
         print("STARTS")
         break
+
 
 #laikapstākļu ģenerators
 import random
@@ -17,7 +19,7 @@ laikapstakli = random.choice(apstakli)
 
 #aprēķina akumulatora izlādi atkarībā no laikapstākļiem
 akumulators_sakuma = 100
-cels = 140 #uztaisīt, lai reālus km var mainīt 
+cels = 140       #uztaisīt, lai reālus km var mainīt 
 if laikapstakli == "labi":
     akumulators_izteretais= cels*100/140 
     print(akumulators_izteretais)
@@ -70,3 +72,16 @@ with open('kontrolpunkti.txt') as f:
 
 
 #spēles beigas, rezultātu izvade
+
+
+#pavadītais laiks spēlē
+import timeit
+
+start = timeit.default_timer()
+
+# All the program statements
+stop = timeit.default_timer()
+execution_time = stop - start
+time = round(execution_time, 2)
+
+print("Program Executed in "+str(time)) # It returns time in seconds

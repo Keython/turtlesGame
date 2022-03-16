@@ -15,6 +15,30 @@ import random
 apstakli=["slikti", "labi"]
 laikapstakli = random.choice(apstakli)
 
+#aprēķina akumulatora izlādi atkarībā no laikapstākļiem
+akumulators_sakuma = 100
+cels = 140 #uztaisīt, lai reālus km var mainīt 
+if laikapstakli == "labi":
+    akumulators_izteretais= cels*100/140 
+    print(akumulators_izteretais)
+if laikapstakli == "slikti" and cels<=80:
+    akumulators_izteretais= cels*100/80 
+    print(akumulators_izteretais)
+elif laikapstakli=="slikti" and cels>80:
+    akumulators_izteretais=akumulators_sakuma
+    print("Akumulators izlādējies")
+
+akumulators = akumulators_sakuma-akumulators_izteretais
+print("uzlādes līmenis ir "+str(akumulators)+"%")
+
+
+#jāuzlabo, lai vienmēr var paskatīties stāvokli
+print("Ja vēlies pārbaudīt akumulatora stāvokli, spied taustiņu 'a'")
+while True:
+    if keyboard.is_pressed("a"):
+        print("Uzlādes līmenis ir: "+str(akumulators)+"%")
+        break
+
 #kontrolpunktu faila nolasīšana
 with open('kontrolpunkti.txt') as f:
     contents = f.read()
@@ -27,18 +51,6 @@ with open('kontrolpunkti.txt') as f:
 
 
 #akumolatora uzskaite, a0=100%, vienmēr var uzspiest
-akumulators_sakuma = 100
-cels = 140
-if laikapstakli == "labi":
-    akumulators_izteretais= cels*100/140 
-    print(akumulators_izteretais)
-akumulators=50
-
-print("Ja vēlies pārbaudīt akumulatora stāvokli, spied taustiņu 'a'")
-while True:
-    if keyboard.is_pressed("a"):
-        print("Uzlādes līmenis ir: "+str(akumulators)+"%")
-        break
 
 
 #laikapstākļu faktors mašīnas nobraukumam

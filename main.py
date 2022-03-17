@@ -45,7 +45,7 @@ while True:
         break
 
 #kontrolpunktu faila nolasīšana
-with open('kontrolpunkti.txt') as f:
+with open('faili/kontrolpunkti.txt') as f:
     contents = f.read()
     print(contents)
 

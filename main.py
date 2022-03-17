@@ -20,13 +20,16 @@ laikapstakli = random.choice(apstakli)
 #aprēķina akumulatora izlādi atkarībā no laikapstākļiem
 akumulators_sakuma = 100
 cels = 140       #uztaisīt, lai reālus km var mainīt 
-if laikapstakli == "labi":
+if laikapstakli == "labi" and cels<=140:
     akumulators_izteretais= cels*100/140 
     print(akumulators_izteretais)
+if laikapstakli=="labi" and cels>140:
+    akumulators_izteretais=akumulators_sakuma
+    print("Akumulators izlādējies")
 if laikapstakli == "slikti" and cels<=80:
     akumulators_izteretais= cels*100/80 
     print(akumulators_izteretais)
-elif laikapstakli=="slikti" and cels>80:
+if laikapstakli=="slikti" and cels>80:
     akumulators_izteretais=akumulators_sakuma
     print("Akumulators izlādējies")
 
@@ -56,7 +59,6 @@ with open('kontrolpunkti.txt') as f:
 
 
 #laikapstākļu faktors mašīnas nobraukumam
-
 
 
 #uzlādes līmeņa, km nolasīšana jebkurā laikā

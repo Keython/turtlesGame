@@ -2,20 +2,24 @@ print("TURTLES' RALLY LIEPĀJA")
 #vārdi, sākums
 
 print("Spēles izstrādātāji: Paula Lībeka, Loreta Aleksejeva, Keita Laimiņa")
-print("SPIED 'SPACE', LAI SĀKTU SPĒLI")
+print("SPIED 'ENTER', LAI SĀKTU SPĒLI")
 
 #taustiņu pārbaude
-import keyboard
-while True:
-    if keyboard.is_pressed("space"):
-        print("STARTS")
-        break
+input() 
+print("starts")
+#import keyboard
+#while True:
+    #if keyboard.is_pressed("space"):
+        #print("STARTS")
+        #break
 
 
 #laikapstākļu ģenerators
 import random
 apstakli=["slikti", "labi"]
 laikapstakli = random.choice(apstakli)
+
+punkti=0
 
 #aprēķina akumulatora izlādi atkarībā no laikapstākļiem
 akumulators_sakuma = 100
@@ -34,15 +38,18 @@ if laikapstakli=="slikti" and cels>80:
     print("Akumulators izlādējies")
 
 akumulators = akumulators_sakuma-akumulators_izteretais
-print("uzlādes līmenis ir "+str(akumulators)+"%")
+kilometri = 140*akumulators/100
+print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
 
 
 #jāuzlabo, lai vienmēr var paskatīties stāvokli
 print("Ja vēlies pārbaudīt akumulatora stāvokli, spied taustiņu 'a'")
-while True:
-    if keyboard.is_pressed("a"):
-        print("Uzlādes līmenis ir: "+str(akumulators)+"%")
-        break
+if input()=="a":
+    print("Uzlādes līmenis ir: "+str(akumulators)+"%")
+#while True:
+    #if keyboard.is_pressed("a"):
+        #print("Uzlādes līmenis ir: "+str(akumulators)+"%")
+        #break
 
 #kontrolpunktu faila nolasīšana
 with open('faili/kontrolpunkti.txt') as f:
@@ -87,3 +94,11 @@ execution_time = stop - start
 time = round(execution_time, 2)
 
 print("Program Executed in "+str(time)) # It returns time in seconds
+
+#bildes, uzlabot, lai randoma atveras un pazūd 
+from PIL import Image
+im = Image.open(r"prezidenti/vaira.jpg")
+im.show()
+print("Kā sauc šo prezidentu(-i)?") 
+atbilde =input()
+

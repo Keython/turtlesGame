@@ -113,6 +113,20 @@ else:
     print("Pareizi!")
   else:
     print("Nepareizi!")
+
+#kontrolpunkts grobiņa
+print("Kura ir Grobiņas lielākā iela?\na:Brīvības iela \nb:Lielā iela\nc:Saules iela")
+grobiņa = input()
+if grobiņa == "b":
+  print("Pareizi!")
+else:
+  print("Mēģini vēlreiz!")
+  print("Kura ir Grobiņas lielākā iela?\na:Brīvības iela \nb:Lielā iela\nc:Saules iela")
+  grobiņa= input()
+  if grobiņa == "b":
+    print("Pareizi!")
+  else:
+    print("Nepareizi!")    
 #indentifikatora atbilstības pārbaude
 
 

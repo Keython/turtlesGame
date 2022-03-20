@@ -86,7 +86,19 @@ else:
   else:
     print("Nepareizi!")
                
-               
+#kontrolpunkts tirgus
+print("Kā vārdos ir nosaukti Liepājas tirgi?\na:Katrīnas un Jāņa \nb:Annas un Pētera\nc:Marijas un Jāņa")
+tirgus = input()
+if tirgus == "b":
+  print("Pareizi!")
+else:
+  print("Mēģini vēlreiz!")
+  print("Kā vārdos ir nosaukti Liepājas tirgi?\na:Katrīnas un Jāņa \nb:Annas un Pētera\nc:Marijas un Jāņa")
+  tirgus= input()
+  if tirgus == "b":
+    print("Pareizi!")
+  else:
+    print("Nepareizi!")               
 #indentifikatora atbilstības pārbaude
 
 

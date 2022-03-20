@@ -71,6 +71,20 @@ else:
     print("Pareizi!")
   else:
     print("Nepareizi!")
+
+#kontrolpunkts dzintars
+print("Kurš ir koncertzāles'Lielais Dzintars' arhitekts?\na:Folkers Gīnke \nb:Gunars Birkerts\nc:Pauls Makss Berči")
+dzintars = input()
+if dzintars == "a":
+  print("Pareizi!")
+else:
+  print("Mēģini vēlreiz!")
+  print("Kurš ir koncertzāles'Lielais Dzintars' arhitekts?\na:Folkers Gīnke \nb:Gunars Birkerts\nc:Pauls Makss Berči")
+  dzintars= input()
+  if dzintars == "a":
+    print("Pareizi!")
+  else:
+    print("Nepareizi!")
                
                
 #indentifikatora atbilstības pārbaude

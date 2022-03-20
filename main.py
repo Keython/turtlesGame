@@ -63,12 +63,14 @@ print("Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš")
 muzejs = input()
 if muzejs == "c":
   print("Pareizi!")
+  punkti = punkti +10
 else:
   print("Mēģini vēlreiz!")
   print("Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš")
   muzejs= input()
   if muzejs == "c":
     print("Pareizi!")
+    punkti = punkti +5
   else:
     print("Nepareizi!")
 
@@ -77,12 +79,14 @@ print("Kurš ir koncertzāles'Lielais Dzintars' arhitekts?\na:Folkers Gīnke \nb
 dzintars = input()
 if dzintars == "a":
   print("Pareizi!")
+  punkti = punkti+10
 else:
   print("Mēģini vēlreiz!")
   print("Kurš ir koncertzāles'Lielais Dzintars' arhitekts?\na:Folkers Gīnke \nb:Gunars Birkerts\nc:Pauls Makss Berči")
   dzintars= input()
   if dzintars == "a":
     print("Pareizi!")
+    punkti=punkti+5
   else:
     print("Nepareizi!")
                
@@ -91,12 +95,14 @@ print("Kā vārdos ir nosaukti Liepājas tirgi?\na:Katrīnas un Jāņa \nb:Annas
 tirgus = input()
 if tirgus == "b":
   print("Pareizi!")
+  punkti=punkti+10
 else:
   print("Mēģini vēlreiz!")
   print("Kā vārdos ir nosaukti Liepājas tirgi?\na:Katrīnas un Jāņa \nb:Annas un Pētera\nc:Marijas un Jāņa")
   tirgus= input()
   if tirgus == "b":
     print("Pareizi!")
+    punkti=punkti+5
   else:
     print("Nepareizi!")         
 
@@ -105,12 +111,14 @@ print("Kādas ticības baznīca atrodas Karostā?\na:katoļu \nb:luterāņu\nc:p
 karosta = input()
 if karosta == "c":
   print("Pareizi!")
+  punkti=punkti+10
 else:
   print("Mēģini vēlreiz!")
   print("Kādas ticības baznīca atrodas Karostā?\na:katoļu \nb:luterāņu\nc:pareizticīgo")
   karosta= input()
   if karosta == "c":
     print("Pareizi!")
+    punkti=punkti+5
   else:
     print("Nepareizi!")
 
@@ -119,26 +127,30 @@ print("Kura ir Grobiņas lielākā iela?\na:Brīvības iela \nb:Lielā iela\nc:S
 grobiņa = input()
 if grobiņa == "b":
   print("Pareizi!")
+  punkti=punkti+10
 else:
   print("Mēģini vēlreiz!")
   print("Kura ir Grobiņas lielākā iela?\na:Brīvības iela \nb:Lielā iela\nc:Saules iela")
   grobiņa= input()
   if grobiņa == "b":
     print("Pareizi!")
+    punkti=punkti+5
   else:
     print("Nepareizi!")  
 
 #kontrolpunkts zirgu sala
 print("Kādus dzīvniekus var novērot zirgu salā?\na:putnus \nb:zirgus\nc:roņus")
-zirgu sala = input()
-if zirgu sala == "a":
+zirgusala = input()
+if zirgusala == "a":
   print("Pareizi!")
+  punkti=punkti+10
 else:
   print("Mēģini vēlreiz!")
   print("Kādus dzīvniekus var novērot zirgu salā?\na:putnus \nb:zirgus\nc:roņus")
-  zirgu sala= input()
-  if zirgu sala == "a":
+  zirgusala= input()
+  if zirgusala == "a":
     print("Pareizi!")
+    punkti=punkti+5
   else:
     print("Nepareizi!")
 
@@ -147,12 +159,14 @@ print("Kādā secībā jāveic pirmā palīdzība?(atbilžu burtus atdali ar kom
 slimnīca = input()
 if slimnīca == "b,c,a":
   print("Pareizi!")
+  punkti=punkti+10
 else:
   print("Mēģini vēlreiz!")
   print("Kādā secībā jāveic pirmā palīdzība?(atbilžu burtus atdali ar komatu)\na:sauc palīgā \nb:pārliecinies par savu un apkārtējo drošību.\nc:pārbaudi cietušā stāvokli")
   slimnīca= input()
   if slimnīca == "b,c,a":
     print("Pareizi!")
+    punkti=punkti+5
   else:
     print("Nepareizi!")
 #indentifikatora atbilstības pārbaude

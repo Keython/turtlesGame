@@ -98,7 +98,21 @@ else:
   if tirgus == "b":
     print("Pareizi!")
   else:
-    print("Nepareizi!")               
+    print("Nepareizi!")         
+
+#kontrolpunkts karosta
+print("Kādas ticības baznīca atrodas Karostā?\na:katoļu \nb:luterāņu\nc:pareizticīgo")
+karosta = input()
+if karosta == "c":
+  print("Pareizi!")
+else:
+  print("Mēģini vēlreiz!")
+  print("Kādas ticības baznīca atrodas Karostā?\na:katoļu \nb:luterāņu\nc:pareizticīgo")
+  karosta= input()
+  if karosta == "c":
+    print("Pareizi!")
+  else:
+    print("Nepareizi!")
 #indentifikatora atbilstības pārbaude
 
 

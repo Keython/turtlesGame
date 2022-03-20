@@ -126,7 +126,21 @@ else:
   if grobiņa == "b":
     print("Pareizi!")
   else:
-    print("Nepareizi!")    
+    print("Nepareizi!")  
+
+#kontrolpunkts zirgu sala
+print("Kādus dzīvniekus var novērot zirgu salā?\na:putnus \nb:zirgus\nc:roņus")
+zirgu sala = input()
+if zirgu sala == "a":
+  print("Pareizi!")
+else:
+  print("Mēģini vēlreiz!")
+  print("Kādus dzīvniekus var novērot zirgu salā?\na:putnus \nb:zirgus\nc:roņus")
+  zirgu sala= input()
+  if zirgu sala == "a":
+    print("Pareizi!")
+  else:
+    print("Nepareizi!")
 #indentifikatora atbilstības pārbaude
 
 

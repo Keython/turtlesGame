@@ -170,7 +170,7 @@ else:
   else:
     print("Nepareizi!")
 #indentifikatora atbilstības pārbaude
-
+print("Tev ir bonusa punkti:",str(punkti))
 
 #akumolatora uzskaite, a0=100%, vienmēr var uzspiest
 
@@ -205,10 +205,96 @@ time = round(execution_time, 2)
 
 print("Program Executed in "+str(time)) # It returns time in seconds
 
-#bildes, uzlabot, lai randoma atveras un pazūd 
+#bildes, uzlabot, lai randoma atveras un pazūd
+# kontrolpunkts Čakstes laukums 
+print("Kā sauc šo prezidentu(-i)?") 
 from PIL import Image
 im = Image.open(r"prezidenti/vaira.jpg")
 im.show()
-print("Kā sauc šo prezidentu(-i)?") 
 atbilde =input()
+pareizi=["Vaira Vīķe Freiberga","Vaira Vīķe-Freiberga","Vaira Vīķe - Freiberga","vaira vīķe freiberga","vaira vīķe-freiberga", "vaira vīķe - freiberga"]
+if atbilde in pareizi:
+    punkti=punkti+10
+    print("Pareizi!")
+else:
+    print("Mēģini vēlreiz!")
+    from PIL import Image 
+    im = Image.open(r"prezidenti/Zemgals.jpg")
+    im.show()
+    print("Kā sauc šo prezidentu(-i)?") 
+    atbilde=input()
+    if atbilde== "Gustavs Zemgals" or atbilde=="gustavs zemgals":
+        punkti=punkti+5
+        print("Pareizi!")
+    else:
+        print("Mēģini vēlreiz!")
+        from PIL import Image
+        im = Image.open(r"prezidenti/kviesis.png")
+        im.show()
+        print("Kā sauc šo prezidentu(-i)?") 
+        atbilde=input()
+        if atbilde=="Alberts Kviesis"or atbilde=="alberts kviesis":
+            print("Pareizi!")#VAJAG BONUSA PUNKTUS VĒL?
+        else:
+            print("Nepareizi!")
+
+#kontrolpunkts Kursa
+print("Kā sauc šo zivi?\na:plekste\nb:menca\nc:līdaka")
+from PIL import Image
+im = Image.open(r"zivis/plekste.jpg")
+im.show()
+zivs=input()
+if zivs=="a":
+    punkti=punkti+10
+    print("Pareizi!")
+else:
+    print("Mēģini vēlreiz!")
+    print("Kā sauc šo zivi?\na:asaris\nb:lasis\nc:rauda")
+    from PIL import Image
+    im = Image.open(r"zivis/lasis.jpg")
+    im.show() 
+    zivs=input()
+    if zivs=="b":
+        punkti=punkti+5
+        print("Pareizi!")
+    else:
+        print("Nepareizi!")
+
+#kontrolpunkts Juliannas pagalms PABEIGT?padomāt kā var vairākas reizes bez tik daudz koda(loop)
+gads=random.randrange(1990,2031)
+menesis=random.randrange(1,13)
+if menesis in range(1,10):
+    menesis2="0"+str(menesis)
+if menesis==2:
+    diena=random.randrange(1,29)
+elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
+    diena=random.randrange(1,31)
+else:
+    diena=random.randrange(1,32)
+if diena in range(1,10):
+    diena1="0"+str(diena)
+if diena in range(10,32):
+    diena1=diena
+print("Tu esi bāra apsargs. Šodien ir šāds datums: "+str(diena1)+"."+str(menesis2)+"."+str(gads))
+gads2=random.randrange(1990, gads+1)
+menesis2=random.randrange(1,menesis+1)
+if menesis2 in range(1,10):
+    menesis="0"+str(menesis)
+else:
+    menesis=menesis2
+if menesis2==2:
+    diena2=random.randrange(1,diena+1)
+elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
+    diena2=random.randrange(1,diena+1)
+else:
+    diena2=random.randrange(1,diena+1)
+if diena2 in range(1,10):
+    diena="0"+str(diena2)
+else:
+    diena=diena2
+print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis)+"."+str(gads2))
+
+
+    
+
 

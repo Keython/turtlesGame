@@ -58,13 +58,15 @@ with open('faili/kontrolpunkti.txt') as f:
 
 #kontrolpunktu tabula
 
-#1.uzd muzejs
-muzejs = input("Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš")
+#kontrolpunkts muzejs
+print("Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš")
+muzejs = input()
 if muzejs == "c":
   print("Pareizi!")
 else:
   print("Mēģini vēlreiz!")
-  muzejs = input("Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš")
+  print("Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš")
+  muzejs= input()
   if muzejs == "c":
     print("Pareizi!")
   else:

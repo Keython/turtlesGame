@@ -141,6 +141,20 @@ else:
     print("Pareizi!")
   else:
     print("Nepareizi!")
+
+#kontrolpunkts slimnīca
+print("Kādā secībā jāveic pirmā palīdzība?(atbilžu burtus atdali ar komatu)\na:sauc palīgā \nb:pārliecinies par savu un apkārtējo drošību.\nc:pārbaudi cietušā stāvokli")
+slimnīca = input()
+if slimnīca == "b,c,a":
+  print("Pareizi!")
+else:
+  print("Mēģini vēlreiz!")
+  print("Kādā secībā jāveic pirmā palīdzība?(atbilžu burtus atdali ar komatu)\na:sauc palīgā \nb:pārliecinies par savu un apkārtējo drošību.\nc:pārbaudi cietušā stāvokli")
+  slimnīca= input()
+  if slimnīca == "b,c,a":
+    print("Pareizi!")
+  else:
+    print("Nepareizi!")
 #indentifikatora atbilstības pārbaude
 
 

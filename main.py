@@ -261,40 +261,52 @@ else:
         print("Nepareizi!")
 
 #kontrolpunkts Juliannas pagalms PABEIGT?padomāt kā var vairākas reizes bez tik daudz koda(loop)
-gads=random.randrange(1990,2031)
-menesis=random.randrange(1,13)
-if menesis in range(1,10):
-    menesis2="0"+str(menesis)
-if menesis==2:
-    diena=random.randrange(1,29)
-elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
-    diena=random.randrange(1,31)
-else:
-    diena=random.randrange(1,32)
-if diena in range(1,10):
-    diena1="0"+str(diena)
-if diena in range(10,32):
-    diena1=diena
-print("Tu esi bāra apsargs. Šodien ir šāds datums: "+str(diena1)+"."+str(menesis2)+"."+str(gads))
-gads2=random.randrange(1990, gads+1)
-menesis2=random.randrange(1,menesis+1)
-if menesis2 in range(1,10):
-    menesis="0"+str(menesis)
-else:
-    menesis=menesis2
-if menesis2==2:
-    diena2=random.randrange(1,diena+1)
-elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
-    diena2=random.randrange(1,diena+1)
-else:
-    diena2=random.randrange(1,diena+1)
-if diena2 in range(1,10):
-    diena="0"+str(diena2)
-else:
-    diena=diena2
-print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis)+"."+str(gads2))
+def julianna():
+  gads=random.randrange(1990,2031)
+  menesis=random.randrange(1,13)
+  if menesis in range(1,10):
+      menesis2="0"+str(menesis)
+  if menesis==2:
+      diena=random.randrange(1,29)
+  elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
+      diena=random.randrange(1,31)
+  else:
+      diena=random.randrange(1,32)
+  if diena in range(1,10):
+      diena1="0"+str(diena)
+  if diena in range(10,32):
+      diena1=diena
+  print("Tu esi bāra apsargs. Šodien ir šāds datums: "+str(diena1)+"."+str(menesis2)+"."+str(gads))
+  gads2=random.randrange(1990, gads+1)
+  menesis3=random.randrange(1,menesis+1)
+  if menesis3 in range(1,10):
+      menesis="0"+str(menesis)
+  else:
+      menesis=menesis3
+  if menesis3==2:
+      diena2=random.randrange(1,diena+1)
+  elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
+      diena2=random.randrange(1,diena+1)
+  else:
+      diena2=random.randrange(1,diena+1)
+  if diena2 in range(1,10):
+      diena="0"+str(diena2)
+  else:
+      diena=diena2
+  print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis)+"."+str(gads2))
+  print("a:drīkst ielaist\nb:nedrīkst ielaist")
+  apsargs = input()
+  if gads - gads2>18:
+    if apsargs=="a":
+      punkti=punkti+10
+      print("Pareizi!")
+  if gads - gads2<18:
+    if apsargs=="b":
+      print("Nepareizi!")
+  if gads - gads2==18:
+    print("aha")
 
-
+julianna()
     
 
 

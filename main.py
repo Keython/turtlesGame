@@ -315,6 +315,39 @@ def julianna():
     else:
       print("Nepareizi")
 
+  print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis)+"."+str(gads2))
+  print("a:drīkst ielaist\nb:nedrīkst ielaist")
+  apsargs = input()
+  if gads - gads2>18:
+    if apsargs=="a":
+      punkti=punkti+10
+      print("Pareizi!")
+  if gads - gads2<18:
+    if apsargs=="b":
+      print("Pareizi!")
+  if gads - gads2==18 and diena1 - diena>0 and menesis2 - menesis>=0 :
+    if apsargs=="a":
+      punkti=punkti+10
+      print("Pareizi!")
+    else:
+      print("Nepareizi")
+
+  print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis)+"."+str(gads2))
+  print("a:drīkst ielaist\nb:nedrīkst ielaist")
+  apsargs = input()
+  if gads - gads2>18:
+    if apsargs=="a":
+      punkti=punkti+10
+      print("Pareizi!")
+  if gads - gads2<18:
+    if apsargs=="b":
+      print("Pareizi!")
+  if gads - gads2==18 and diena1 - diena>0 and menesis2 - menesis>=0 :
+    if apsargs=="a":
+      punkti=punkti+10
+      print("Pareizi!")
+    else:
+      print("Nepareizi")      
 julianna()
     
 

@@ -71,6 +71,22 @@ else:
     print("Pareizi!")
   else:
     print("Nepareizi!")
+
+#kontrolpunkts katedrāle
+#7.uzd
+print("Kāda ticība ir Karostas katedrālē?\na:luterānisms \nb:pareizticība \nc:kristietība")
+ticība = input()
+if ticība == "b":
+    print("Pareizi!")
+else:
+    print("Mēģini vēlreiz!")
+    print("Kāda ticība ir Karostas katedrālē?\na:luterānisms \nb:pareizticība \nc:kristietība")
+    ticība = input()
+    if ticība == "b":
+        print("Pareizi!")
+else:
+    print("Nepareizi!")
+
                
                
 #indentifikatora atbilstības pārbaude

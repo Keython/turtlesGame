@@ -20,6 +20,10 @@ apstakli=["slikti", "labi"]
 laikapstakli = random.choice(apstakli)
 
 punkti=0
+#open excel
+import pandas as pd
+df = pd.read_excel (r'kontrolpunktu tabula.xlsx')
+print (df)
 
 #aprēķina akumulatora izlādi atkarībā no laikapstākļiem
 akumulators_sakuma = 100
@@ -171,6 +175,7 @@ else:
     print("Nepareizi!")
 #indentifikatora atbilstības pārbaude
 print("Tev ir bonusa punkti:",str(punkti))
+
 
 #akumolatora uzskaite, a0=100%, vienmēr var uzspiest
 

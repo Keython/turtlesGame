@@ -266,7 +266,7 @@ else:
         print("Nepareizi!")
 
 #kontrolpunkts Juliannas pagalms PABEIGT?padomāt kā var vairākas reizes bez tik daudz koda(loop)
-def julianna():
+for i in range(5):
   gads=random.randrange(1990,2031)
   menesis=random.randrange(1,13)
   if menesis in range(1,10):
@@ -283,18 +283,18 @@ def julianna():
       diena1="0"+str(diena)
   if diena in range(10,32):
       diena1=diena
-  print("Tu esi bāra apsargs. Šodien ir šāds datums: "+str(diena1)+"."+str(menesis2)+"."+str(gads))
+  
   gads2=random.randrange(1990, gads+1)
   menesis3=random.randrange(1,menesis+1)
   if menesis3 in range(1,10):
-      menesis="0"+str(menesis)
+      menesis4="0"+str(menesis3)
   if menesis3 in range(10,13):
-      menesis=menesis3
+      menesis4=menesis3
   else:
-      menesis=menesis3
+      menesis=menesis3 
   if menesis3==2:
       diena2=random.randrange(1,diena+1)
-  elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
+  elif menesis3==4 or menesis3==6 or menesis3==9 or menesis3==11:
       diena2=random.randrange(1,diena+1)
   else:
       diena2=random.randrange(1,diena+1)
@@ -302,7 +302,8 @@ def julianna():
       diena="0"+str(diena2)
   else:
       diena=diena2
-  print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis)+"."+str(gads2))
+  print("Tu esi bāra apsargs. Šodien ir šāds datums: "+str(diena1)+"."+str(menesis2)+"."+str(gads))
+  print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis4)+"."+str(gads2))
   print("a:drīkst ielaist\nb:nedrīkst ielaist")
   apsargs = input()
   if gads - gads2>18:
@@ -313,6 +314,7 @@ def julianna():
       print("Nepareizi!")
   if gads - gads2<18:
     if apsargs=="b":
+      punkti=punkti+10
       print("Pareizi!")
     else:
       print("Nepareizi!")
@@ -321,51 +323,8 @@ def julianna():
       punkti=punkti+10
       print("Pareizi!")
     else:
-      print("Nepareizi")
-
-  print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis)+"."+str(gads2))
-  print("a:drīkst ielaist\nb:nedrīkst ielaist")
-  apsargs = input()
-  if gads - gads2>18:
-    if apsargs=="a":
-      punkti=punkti+10
-      print("Pareizi!")
-    else:
       print("Nepareizi!")
-  if gads - gads2<18:
-    if apsargs=="b":
-      print("Pareizi!")
-    else:
-      print("Nepareizi!")
-  if gads - gads2==18 and diena1 - diena>0 and menesis2 - menesis>=0 :
-    if apsargs=="a":
-      punkti=punkti+10
-      print("Pareizi!")
-    else:
-      print("Nepareizi")
-
-  print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis)+"."+str(gads2))
-  print("a:drīkst ielaist\nb:nedrīkst ielaist")
-  apsargs = input()
-  if gads - gads2>18:
-    if apsargs=="a":
-      punkti=punkti+10
-      print("Pareizi!")
-    else:
-      print("Nepareizi!")
-  if gads - gads2<18:
-    if apsargs=="b":
-      print("Pareizi!")
-    else:
-      print("Nepareizi!")
-  if gads - gads2==18 and diena1 - diena>0 and menesis2 - menesis>=0 :
-    if apsargs=="a":
-      punkti=punkti+10
-      print("Pareizi!")
-    else:
-      print("Nepareizi") 
-
-julianna()
+print(punkti)
     
 
 

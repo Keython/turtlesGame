@@ -305,9 +305,13 @@ def julianna():
     if apsargs=="a":
       punkti=punkti+10
       print("Pareizi!")
+    else:
+      print("Nepareizi!")
   if gads - gads2<18:
     if apsargs=="b":
       print("Pareizi!")
+    else:
+      print("Nepareizi!")
   if gads - gads2==18 and diena1 - diena>0 and menesis2 - menesis>=0 :
     if apsargs=="a":
       punkti=punkti+10
@@ -322,9 +326,13 @@ def julianna():
     if apsargs=="a":
       punkti=punkti+10
       print("Pareizi!")
+    else:
+      print("Nepareizi!")
   if gads - gads2<18:
     if apsargs=="b":
       print("Pareizi!")
+    else:
+      print("Nepareizi!")
   if gads - gads2==18 and diena1 - diena>0 and menesis2 - menesis>=0 :
     if apsargs=="a":
       punkti=punkti+10
@@ -339,9 +347,13 @@ def julianna():
     if apsargs=="a":
       punkti=punkti+10
       print("Pareizi!")
+    else:
+      print("Nepareizi!")
   if gads - gads2<18:
     if apsargs=="b":
       print("Pareizi!")
+    else:
+      print("Nepareizi!")
   if gads - gads2==18 and diena1 - diena>0 and menesis2 - menesis>=0 :
     if apsargs=="a":
       punkti=punkti+10

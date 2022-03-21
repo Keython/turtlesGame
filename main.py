@@ -201,16 +201,6 @@ if akumulators == 0:
 
 
 #pavadītais laiks spēlē
-import timeit
-
-start = timeit.default_timer()
-
-# All the program statements
-stop = timeit.default_timer()
-execution_time = stop - start
-time = round(execution_time, 2)
-
-print("Program Executed in "+str(time)) # It returns time in seconds
 
 #bildes, uzlabot, lai randoma atveras un pazūd
 # kontrolpunkts Čakstes laukums 

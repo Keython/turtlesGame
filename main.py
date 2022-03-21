@@ -193,9 +193,10 @@ print("Tev ir bonusa punkti:",str(punkti))
 
 
 #evakuators
-if akumulators <= 0:
+if akumulators == 0:
   print("Akumulators ir izlādējies! Nepieciešams evakuators! Ievadi uzlādes stacijas identifikatoru!")
   uzlades_stacija = input()
+  punkti = punkti-20
 #spēles beigas, rezultātu izvade
 
 

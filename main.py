@@ -89,22 +89,6 @@ else:
     punkti=punkti+5
   else:
     print("Nepareizi!")
-
-#kontrolpunkts katedrāle
-#7.uzd
-print("Kāda ticība ir Karostas katedrālē?\na:luterānisms \nb:pareizticība \nc:kristietība")
-ticība = input()
-if ticība == "b":
-    print("Pareizi!")
-else:
-    print("Mēģini vēlreiz!")
-    print("Kāda ticība ir Karostas katedrālē?\na:luterānisms \nb:pareizticība \nc:kristietība")
-    ticība = input()
-    if ticība == "b":
-        print("Pareizi!")
-else:
-    print("Nepareizi!")
-
                
 #kontrolpunkts tirgus
 print("Kā vārdos ir nosaukti Liepājas tirgi?\na:Katrīnas un Jāņa \nb:Annas un Pētera\nc:Marijas un Jāņa")

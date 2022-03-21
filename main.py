@@ -13,6 +13,10 @@ print("starts")
         #print("STARTS")
         #break
 
+#kontrolpunktu faila nolasīšana
+with open('faili/kontrolpunkti.txt') as f:
+    contents = f.read()
+    print(contents)
 
 #laikapstākļu ģenerators
 import random
@@ -23,7 +27,11 @@ punkti=0
 #open excel
 import pandas as pd
 df = pd.read_excel (r'kontrolpunktu tabula.xlsx')
+data=pd.read_excel (r'kontrolpunktu tabula.xlsx')
+dklk = pd.DataFrame(data, columns= ['a(Muzejs)','b(Dzintars)'])
 print (df)
+print(dklk)
+
 
 #aprēķina akumulatora izlādi atkarībā no laikapstākļiem
 akumulators_sakuma = 100
@@ -54,11 +62,6 @@ if input()=="a":
     #if keyboard.is_pressed("a"):
         #print("Uzlādes līmenis ir: "+str(akumulators)+"%")
         #break
-
-#kontrolpunktu faila nolasīšana
-with open('faili/kontrolpunkti.txt') as f:
-    contents = f.read()
-    print(contents)
 
 #kontrolpunktu tabula
 

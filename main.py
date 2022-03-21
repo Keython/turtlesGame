@@ -271,6 +271,8 @@ def julianna():
   menesis=random.randrange(1,13)
   if menesis in range(1,10):
       menesis2="0"+str(menesis)
+  if menesis in range(10,13):
+      menesis2=menesis
   if menesis==2:
       diena=random.randrange(1,29)
   elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
@@ -286,6 +288,8 @@ def julianna():
   menesis3=random.randrange(1,menesis+1)
   if menesis3 in range(1,10):
       menesis="0"+str(menesis)
+  if menesis3 in range(10,13):
+      menesis=menesis3
   else:
       menesis=menesis3
   if menesis3==2:
@@ -360,7 +364,7 @@ def julianna():
       print("Pareizi!")
     else:
       print("Nepareizi") 
-           
+
 julianna()
     
 

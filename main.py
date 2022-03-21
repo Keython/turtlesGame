@@ -347,7 +347,8 @@ def julianna():
       punkti=punkti+10
       print("Pareizi!")
     else:
-      print("Nepareizi")      
+      print("Nepareizi") 
+           
 julianna()
     
 

@@ -1,1 +1,16 @@
-liepaja
+starts = Liepajas Olimpiskais centrs
+a = Lielais Dzintars
+b = Liepajas muzejs
+c = Kursa
+d = Petertirgus
+e = Cakstes laukums
+f = Juliannas pagalms
+g = Karostas katedrale
+h = Grobinas pilskalns
+i = Zirgu sala
+j = Liepajas slimnica
+1 = uzlades stacija "Virsi" pie Cukurina
+2 = uzlades stacija "Circle K" pie Rietumu centra
+3 = uzlades stacija "Viada" Grobina
+finiss = Ziemelu mols 
+Pilsetas merogs 1:4(km)

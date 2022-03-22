@@ -17,6 +17,30 @@ print("starts")
 with open('faili/kontrolpunkti.txt') as f:
     contents = f.read()
     print(contents)
+#import docx
+#doc = docx.Document('..\\Sample_File_DOCX.docx')
+#paras = [p.text for p in doc.paragraphs if p.text]   
+#word faila nolasīšana
+#import docx
+#doc = docx.Document('demo.docx')
+#len(doc.paragraphs)
+#doc.paragraphs[0].text
+#'Kontrolpunkts_dzintars'
+#doc.paragraphs[1].text
+#'A plain paragraph with some bold and some italic'
+#len(doc.paragraphs[1].runs)
+#doc.paragraphs[1].runs[0].text
+#'A plain paragraph with some '
+#doc.paragraphs[1].runs[1].text
+#'bold'
+#doc.paragraphs[1].runs[2].text
+#' and some '
+#doc.paragraphs[1].runs[3].text
+#'italic'
+#import textract
+#text = textract.process("faili/Kontrolpunkts_muzejs.docx")
+#print(text)
+#text = textract.process('faili/Kontrolpunkts_muzejs.docx', extension='docx')
 
 #laikapstākļu ģenerators
 import random
@@ -28,7 +52,7 @@ punkti=0
 import pandas as pd
 df = pd.read_excel (r'faili/kontrolpunktu tabula.xlsx')
 data=pd.read_excel (r'faili/kontrolpunktu tabula.xlsx')
-dklk = pd.DataFrame(data, columns= ['a(Muzejs)','b(Dzintars)'])
+dklk = pd.DataFrame(data, columns= ['a','b'])
 print (df)
 print(dklk)
 
@@ -261,7 +285,7 @@ else:
         print("Nepareizi!")
 
 #kontrolpunkts Juliannas pagalms PABEIGT?padomāt kā var vairākas reizes bez tik daudz koda(loop)
-for i in range(5):
+for i in range(4):
   gads=random.randrange(1990,2031)
   menesis=random.randrange(1,13)
   if menesis in range(1,10):

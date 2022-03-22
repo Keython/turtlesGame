@@ -121,7 +121,7 @@ if laikapstakli==2 and int(cels)>80:
     akumulators_izteretais=akumulators_sakuma
     print("Akumulators izlādējies")
 
-akumulators = akumulators_sakuma-akumulators_izteretais
+akumulators = akumulators_sakuma-akumulators_izteretais#round NUMBERS!!!
 kilometri = 140*akumulators/100
 print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
 

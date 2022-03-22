@@ -16,7 +16,7 @@ print("starts")
 import xlrd
  
 # Give the location of the file
-loc = ("faili/kontrolpunktu tabula.xlsx")
+loc = ("faili/kontrolpunktu tabula (bez km).xlsx")
  
 # To open Workbook
 wb = xlrd.open_workbook(loc)
@@ -85,32 +85,35 @@ with open('faili/kontrolpunkti.txt') as f:
 
 #laikapstākļu ģenerators
 import random
-apstakli=["slikti", "labi"]
+apstakli=[2, 1]
 laikapstakli = random.choice(apstakli)
 
-punkti=0
+punkti=10 
 #open excel
 import pandas as pd
-df = pd.read_excel (r'faili/kontrolpunktu tabula.xlsx')
-data=pd.read_excel (r'faili/kontrolpunktu tabula.xlsx')
+df = pd.read_excel (r'faili/kontrolpunktu tabula (bez km).xlsx')
+data=pd.read_excel (r'faili/kontrolpunktu tabula (bez km).xlsx')
 dklk = pd.DataFrame(data, columns= ['a','b'])
 print (df)
-print(dklk)
+identifikators = input("Ievadi kontorpukta identifikatoru: ")
+if identifikators == "ab":
+  cels = ab
+
 
 
 #aprēķina akumulatora izlādi atkarībā no laikapstākļiem
 akumulators_sakuma = 100
-cels = 140       #uztaisīt, lai reālus km var mainīt 
-if laikapstakli == "labi" and cels<=140:
+      #uztaisīt, lai reālus km var mainīt 
+if laikapstakli == 1 and int(cels)<=140:
     akumulators_izteretais= cels*100/140 
     print(akumulators_izteretais)
-if laikapstakli=="labi" and cels>140:
+if laikapstakli==1 and int(cels)>140:
     akumulators_izteretais=akumulators_sakuma
     print("Akumulators izlādējies")
-if laikapstakli == "slikti" and cels<=80:
+if laikapstakli == 2 and int(cels)<=80:
     akumulators_izteretais= cels*100/80 
     print(akumulators_izteretais)
-if laikapstakli=="slikti" and cels>80:
+if laikapstakli==2 and int(cels)>80:
     akumulators_izteretais=akumulators_sakuma
     print("Akumulators izlādējies")
 

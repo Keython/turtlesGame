@@ -21,8 +21,8 @@ loc = ("faili/kontrolpunktu tabula (bez km).xlsx")
 # To open Workbook
 wb = xlrd.open_workbook(loc)
 sheet = wb.sheet_by_index(0)
-for i in range(sheet.ncols):
-    print(sheet.cell_value(0, i))
+#for i in range(sheet.ncols):
+#    print(sheet.cell_value(0, i))
  
 # For row 0 and column 0
 ab =sheet.cell_value(2, 1)
@@ -37,7 +37,6 @@ aj = sheet.cell_value(10, 1)
 a1 = sheet.cell_value(11, 1)
 a2 = sheet.cell_value(12, 1)
 a3 = sheet.cell_value(13, 1)
-print(ab,ac,ad,ae,af,ag,ah,ai,aj,a1,a2,a3)
 
 ba =sheet.cell_value(1, 2)
 bc =sheet.cell_value(3, 2)
@@ -154,68 +153,6 @@ ji = sheet.cell_value(9, 10)
 j1 = sheet.cell_value(11, 10)
 j2 = sheet.cell_value(12, 10)
 j3 = sheet.cell_value(13, 10)
-
-1a =sheet.cell_value(1, 11)
-1b =sheet.cell_value(2, 11)
-1c = sheet.cell_value(3, 11)
-1d = sheet.cell_value(4, 11)
-1e = sheet.cell_value(5, 11)
-1f = sheet.cell_value(6, 11)
-1g = sheet.cell_value(7, 11)
-1h = sheet.cell_value(8, 11)
-1i = sheet.cell_value(9, 11)
-1j = sheet.cell_value(10, 11)
-
-2a =sheet.cell_value(1, 12)
-2b =sheet.cell_value(2, 12)
-2c = sheet.cell_value(3, 12)
-2d = sheet.cell_value(4, 12)
-2e = sheet.cell_value(5, 12)
-2f = sheet.cell_value(6, 12)
-2g = sheet.cell_value(7, 12)
-2h = sheet.cell_value(8, 12)
-2i = sheet.cell_value(9, 12)
-2j = sheet.cell_value(10, 12)
-
-3a =sheet.cell_value(1, 13)
-3b =sheet.cell_value(2, 13)
-3c = sheet.cell_value(3, 13)
-3d = sheet.cell_value(4, 13)
-3e = sheet.cell_value(5, 13)
-3f = sheet.cell_value(6, 13)
-3g = sheet.cell_value(7, 13)
-3h = sheet.cell_value(8, 13)
-3i = sheet.cell_value(9, 13)
-3j = sheet.cell_value(10, 13)
-#kontrolpunktu faila nolasīšana
-with open('faili/kontrolpunkti.txt') as f:
-    contents = f.read()
-    print(contents)
-#import docx
-#doc = docx.Document('..\\Sample_File_DOCX.docx')
-#paras = [p.text for p in doc.paragraphs if p.text]   
-#word faila nolasīšana
-#import docx
-#doc = docx.Document('demo.docx')
-#len(doc.paragraphs)
-#doc.paragraphs[0].text
-#'Kontrolpunkts_dzintars'
-#doc.paragraphs[1].text
-#'A plain paragraph with some bold and some italic'
-#len(doc.paragraphs[1].runs)
-#doc.paragraphs[1].runs[0].text
-#'A plain paragraph with some '
-#doc.paragraphs[1].runs[1].text
-#'bold'
-#doc.paragraphs[1].runs[2].text
-#' and some '
-#doc.paragraphs[1].runs[3].text
-#'italic'
-#import textract
-#text = textract.process("faili/Kontrolpunkts_muzejs.docx")
-#print(text)
-#text = textract.process('faili/Kontrolpunkts_muzejs.docx', extension='docx')
-
 #laikapstākļu ģenerators
 import random
 apstakli=[2, 1]
@@ -226,13 +163,44 @@ if laikapstakli == 2:
   print("Laikapstākļi ir slikti")
 
 punkti=10 
+
+#kontrolpunktu faila nolasīšana
+with open('faili/kontrolpunkti.txt') as f:
+    contents = f.read()
+    print(contents)
+
+#import docx
+#doc = docx.Document('faili/Kontrolpunkts_muzejs.docx')
+#paras = [p.text for p in doc.paragraphs if p.text] 
+ 
+#word faila nolasīšana
+import docx
+doci = docx.Document('faili/Kontrolpunkts_muzejs.docx')
+#len(doci.paragraphs)
+print(doci.paragraphs[0].text)
+#'Kontrolpunkts_dzintars'
+print(doci.paragraphs[1].text)
+print(doci.paragraphs[2].text)
+print(doci.paragraphs[3].text)
+#'A plain paragraph with some bold and some italic'
+#len(doci.paragraphs[1].runs)
+#print(doci.paragraphs[0].runs[0].text)
+'A plain paragraph with some '
+
+
+#'italic'
+#import textract
+#text = textract.process("faili/Kontrolpunkts_muzejs.docx")
+#print(text)
+#text = textract.process('faili/Kontrolpunkts_muzejs.docx', extension='docx')
+
 #open excel
 import pandas as pd
 df = pd.read_excel (r'faili/kontrolpunktu tabula (bez km).xlsx')
 data=pd.read_excel (r'faili/kontrolpunktu tabula (bez km).xlsx')
 dklk = pd.DataFrame(data, columns= ['a','b'])
 print (df)
-identifikators = input("Ievadi kontorpukta identifikatoru: ")
+identifikators = input("Uz kuru vietu dosies? Ievadi kontorpukta identifikatoru: ")
 if identifikators == "ab":
   cels = ab
 
@@ -254,7 +222,7 @@ if laikapstakli==2 and int(cels)>80:
     akumulators_izteretais=akumulators_sakuma
     print("Akumulators izlādējies")
 
-akumulators = akumulators_sakuma-akumulators_izteretais#round NUMBERS!!!
+akumulators = round(akumulators_sakuma-akumulators_izteretais)#round NUMBERS!!!
 kilometri = 140*akumulators/100
 print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
 

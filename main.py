@@ -26,8 +26,8 @@ laikapstakli = random.choice(apstakli)
 punkti=0
 #open excel
 import pandas as pd
-df = pd.read_excel (r'kontrolpunktu tabula.xlsx')
-data=pd.read_excel (r'kontrolpunktu tabula.xlsx')
+df = pd.read_excel (r'faili/kontrolpunktu tabula.xlsx')
+data=pd.read_excel (r'faili/kontrolpunktu tabula.xlsx')
 dklk = pd.DataFrame(data, columns= ['a(Muzejs)','b(Dzintars)'])
 print (df)
 print(dklk)

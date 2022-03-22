@@ -87,6 +87,10 @@ with open('faili/kontrolpunkti.txt') as f:
 import random
 apstakli=[2, 1]
 laikapstakli = random.choice(apstakli)
+if laikapstakli ==1:
+  print("Laikapstākļi ir labi")
+if laikapstakli == 2:
+  print("Laikapstākļi ir slikti")
 
 punkti=10 
 #open excel

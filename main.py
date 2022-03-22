@@ -12,6 +12,47 @@ print("starts")
     #if keyboard.is_pressed("space"):
         #print("STARTS")
         #break
+# Reading an excel file using Python
+import xlrd
+ 
+# Give the location of the file
+loc = ("faili/kontrolpunktu tabula.xlsx")
+ 
+# To open Workbook
+wb = xlrd.open_workbook(loc)
+sheet = wb.sheet_by_index(0)
+for i in range(sheet.ncols):
+    print(sheet.cell_value(0, i))
+ 
+# For row 0 and column 0
+ab =sheet.cell_value(2, 1)
+ac = sheet.cell_value(3, 1)
+ad = sheet.cell_value(4, 1)
+ae = sheet.cell_value(5, 1)
+af = sheet.cell_value(6, 1)
+ag = sheet.cell_value(7, 1)
+ah = sheet.cell_value(8, 1)
+ai = sheet.cell_value(9, 1)
+aj = sheet.cell_value(10, 1)
+a1 = sheet.cell_value(11, 1)
+a2 = sheet.cell_value(12, 1)
+a3 = sheet.cell_value(13, 1)
+print(ab,ac,ad,ae,af,ag,ah,ai,aj,a1,a2,a3)
+
+ba =sheet.cell_value(1, 2)
+bc =sheet.cell_value(3, 2)
+bd = sheet.cell_value(4, 2)
+be = sheet.cell_value(5, 2)
+bf = sheet.cell_value(6, 2)
+bg = sheet.cell_value(7, 2)
+bh = sheet.cell_value(8, 2)
+bi = sheet.cell_value(9, 2)
+bj = sheet.cell_value(10, 2)
+b1 = sheet.cell_value(11, 2)
+b2 = sheet.cell_value(12, 2)
+b3 = sheet.cell_value(13, 2)
+
+
 
 #kontrolpunktu faila nolasīšana
 with open('faili/kontrolpunkti.txt') as f:

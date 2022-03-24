@@ -17,15 +17,16 @@ print("starts")
 jautajumi = {
   'a':{ 'jautajums':"Kurš ir koncertzāles'Lielais Dzintars' arhitekts?\na:Folkers Gīnke \nb:Gunars Birkerts\nc:Pauls Makss Berči", 'pareiza_atbilde': ['a']},
   'b':{ 'jautajums':"Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš", 'pareiza_atbilde': ['c']},
-  'c':{'jautajums':"Kā sauc šo zivi?\na:plekste\nb:menca\nc:līdaka", 'pareiza_atbilde': ['a'], 'jautajums2':"Kā sauc šo zivi?\na:asaris\nb:lasis\nc:rauda", 'pareiza_atbilde2':['b']},
+  'cf':{'jautajums':"Kā sauc šo zivi?\na:plekste\nb:menca\nc:līdaka", 'pareiza_atbilde': ['a'], 'jautajums2':"Kā sauc šo zivi?\na:asaris\nb:lasis\nc:rauda", 'pareiza_atbilde2':['b']},
   'd':{'jautajums':"Kā vārdos ir nosaukti Liepājas tirgi?\na:Katrīnas un Jāņa \nb:Annas un Pētera\nc:Marijas un Jāņa", 'pareiza_atbilde':['b']},
-  'e':{'jautajums':"Kā sauc šo prezidentu(-i)?", 'pareiza_atbilde':["vaira vīķe freiberga","vaira vīķe-freiberga","vaira vīķe - freiberga","vaira vīķe -freiberga", "vaira vīķe -freiberga"], 'jautajums2':"Kā sauc šo prezidentu(-i)?", 'pareiza_atbilde2':['gustavs zemgals'], 'pareiza_atbilde3':['alberts kviesis']},
+  'ef':{'jautajums':"Kā sauc šo prezidentu(-i)?", 'pareiza_atbilde':["vaira vīķe freiberga","vaira vīķe-freiberga","vaira vīķe - freiberga","vaira vīķe -freiberga", "vaira vīķe -freiberga"], 'jautajums2':"Kā sauc šo prezidentu(-i)?", 'pareiza_atbilde2':['gustavs zemgals'], 'pareiza_atbilde3':['alberts kviesis']},
   'g':{'jautajums':"Kādas ticības baznīca atrodas Karostā?\na:katoļu \nb:luterāņu\nc:pareizticīgo", 'pareiza_atbilde':['c']},
   'h':{'jautajums':"Kura ir Grobiņas lielākā iela?\na:Brīvības iela \nb:Lielā iela\nc:Saules iela", 'pareiza_atbilde':['b']},
   'i':{'jautajums':"Kādus dzīvniekus var novērot zirgu salā?\na:putnus \nb:zirgus\nc:roņus", 'pareiza_atbilde':['a']},
   'j':{'jautajums':"Kādā secībā jāveic pirmā palīdzība?(atbilžu burtus atdali ar komatu)\na:sauc palīgā \nb:pārliecinies par savu un apkārtējo drošību.\nc:pārbaudi cietušā stāvokli", 'pareiza_atbilde':['b,c,a']}
 }
 print(jautajumi['a']['jautajums'])
+
 #laikapstākļu ģenerators
 import random
 apstakli=[2, 1]
@@ -36,7 +37,7 @@ if laikapstakli == 2:
   print("Laikapstākļi ir slikti")
 
 global punkti
-punkti=10 
+punkti = 10 
 
 #kontrolpunktu faila nolasīšana
 with open('faili/kontrolpunkti.txt') as f:
@@ -76,6 +77,138 @@ print(sheet.cell_value(1,1))
 indeksi = {
   'a':1,'b':2,'c':3,'d':4, 'e':5, 'f':6, 'g':7,'h':8,'i':9,'j':10,'1': 11, '2':12, '3':14
   }
+#vietas nosaukumi
+nosaukumi = {
+  'a':'Lielais Dzintars','b':'Liepājas muzejs','c':'Kursa','d':'Pētertirgus', 'e':'Čakstes laukums', 'f':'Juliannas pagalms', 'g':'Karostas katedrāle','h':'Grobiņas pilskalns','i':'Zirgu sala','j':'Liepājas slimnīca','1': 'uzlādes stacija "Virši"', '2':'uzlādes stacija "Circle K"', '3':'uzlādes stacija "Viada"'
+}
+#kontrolpunkts Kursa
+def kontrolpunktsC():
+  print("Kā sauc šo zivi?\na:plekste\nb:menca\nc:līdaka")
+  from PIL import Image
+  im = Image.open(r"zivis/plekste.jpg")
+  im.show()
+  zivs=input()
+  if zivs=="a":
+      global punkti
+      punkti= punkti+10
+      print("Pareizi!")
+  else:
+      print("Mēģini vēlreiz!")
+      print("Kā sauc šo zivi?\na:asaris\nb:lasis\nc:rauda")
+      from PIL import Image
+      im = Image.open(r"zivis/lasis.jpg")
+      im.show() 
+      zivs=input()
+      if zivs=="b":
+          punkti=punkti+5
+          print("Pareizi!")
+      else:
+          print("Nepareizi!")
+#kontrolpunkts cakstes laukumus
+def kontrolpunktsE():
+  print("Kā sauc šo prezidentu(-i)?") 
+  from PIL import Image
+  im = Image.open(r"prezidenti/Zemgals.jpg")
+  im.show()
+  atbilde =input()
+  if atbilde == "gustavs zemgals":
+      global punkti
+      punkti=punkti+10
+      print("Pareizi!")
+  else:
+      print("Mēģini vēlreiz!")
+      from PIL import Image 
+      im = Image.open(r"prezidenti/Janis_Cakste.jpg")
+      im.show()
+      print("Kā sauc šo prezidentu(-i)?") 
+      atbilde=input()
+      if atbilde== "jānis čakste":
+          punkti=punkti+5
+          print("Pareizi!")
+      else:
+          print("Mēģini vēlreiz!")
+          from PIL import Image
+          im = Image.open(r"prezidenti/kviesis.png")
+          im.show()
+          print("Kā sauc šo prezidentu(-i)?") 
+          atbilde=input()
+          if atbilde=="Alberts Kviesis"or atbilde=="alberts kviesis":
+              print("Pareizi!")#VAJAG BONUSA PUNKTUS VĒL?
+              punkti+=3
+          else:
+            from PIL import Image
+            im = Image.open(r"prezidenti/vaira.jpg")
+            im.show()
+            atbilde =input()
+            pareizi=["Vaira Vīķe Freiberga","Vaira Vīķe-Freiberga","Vaira Vīķe - Freiberga","vaira vīķe freiberga","vaira vīķe-freiberga", "vaira vīķe - freiberga"]
+            if atbilde in pareizi:
+                print("Pareizi!")
+                punkti+=2
+            else:
+                print("Nepareizi!")
+#kontrolpunkts Juliannas pagalms f
+def kontrolpunktsF():
+  global punkti
+  for i in range(5): 
+    gads=random.randrange(1990,2031)
+    menesis=random.randrange(1,13)
+    if menesis in range(1,10):
+        menesis2="0"+str(menesis)
+    if menesis in range(10,13):
+        menesis2=menesis
+    if menesis==2:
+        diena=random.randrange(1,29)
+    elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
+        diena=random.randrange(1,31)
+    else:
+        diena=random.randrange(1,32)
+    if diena in range(1,10):
+        diena1="0"+str(diena)
+    if diena in range(10,32):
+        diena1=diena
+
+    gads2=random.randrange(1980, gads-10)
+    menesis3=random.randrange(1,menesis+1)
+    if menesis3 in range(1,10):
+        menesis4="0"+str(menesis3)
+    if menesis3 in range(10,13):
+        menesis4=menesis3
+    else:
+        menesis=menesis3 
+    if menesis3==2:
+        diena2=random.randrange(1,diena+1)
+    elif menesis3==4 or menesis3==6 or menesis3==9 or menesis3==11:
+        diena2=random.randrange(1,diena+1)
+    else:
+        diena2=random.randrange(1,diena+1)
+    if diena2 in range(1,10):
+        diena="0"+str(diena2)
+    else:
+        diena=diena2
+    print("Tu esi bāra apsargs. Šodien ir šāds datums: "+str(diena1)+"."+str(menesis2)+"."+str(gads))
+    print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis4)+"."+str(gads2))
+    print("a:drīkst ielaist\nb:nedrīkst ielaist")
+    apsargs = input()
+    if gads - gads2>18:
+      if apsargs=="a":
+        punkti=punkti+10
+        print("Pareizi!")
+      else:
+        print("Nepareizi!")
+    if gads - gads2<18:
+      if apsargs=="b":
+        punkti=punkti+10
+        print("Pareizi!")
+      else:
+        print("Nepareizi!")
+    if int(gads) - int(gads2)==18 and int(diena1) - int(diena)>0 and int(menesis2) - int(menesis4)>=0 :
+      if apsargs=="a":
+        punkti=punkti+10
+        print("Pareizi!")
+      else:
+        print("Nepareizi!")
+
+#akumulatora izlāde
 akumulators = 100
 def izlade_akumulators(laikapstakli,cels):
   #uztaisīt, lai reālus km var mainīt
@@ -95,16 +228,27 @@ def izlade_akumulators(laikapstakli,cels):
 #spēles jēga
 akumulators = 100
 kontrolpunkti = 0
+vieta_tagad="a" 
+cels=0
+vieta_biji=[]
+
 
 while kontrolpunkti < 10: 
-  vieta_tagad= "a"
+  #jāuzlabo, lai zina, kur atrodies
   vieta = input("Uz kurieni dosies? Ievadi atbistošo kontrolpunkta burtu: ")
+  while vieta in vieta_biji or vieta==vieta_tagad:
+    print("Tu jau vietā -",nosaukumi[vieta],"- esi bijis.")
+    vieta=input("Uz kurieni dosies? Ievadi atbistošo kontrolpunkta burtu: ")
   #aprēķina akumulatora izlādi atkarībā no laikapstākļiem
-
-
-  if vieta == 'pārbaudīt līmeni':
-    izlade_akumulators(laikapstakli,cels)
-  if vieta in jautajumi:
+  if vieta == 'vieta':
+    print(nosaukumi[vieta_tagad])
+  elif vieta == 'pārbaude':
+    cels=0
+    akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
+    kilometri = 140*akumulators/100
+    print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
+  elif vieta in jautajumi:
+    vieta_biji.append(vieta)
     cels = sheet.cell_value(indeksi[vieta_tagad],indeksi[vieta])
     print(cels)
     kontrolpunkti = kontrolpunkti+1
@@ -119,36 +263,28 @@ while kontrolpunkti < 10:
     k=0
     while atbilde not in jautajumi[vieta]['pareiza_atbilde']:
       k+=1
-      print("Mēģini vēlreiz!")
+      print("Nepareizi!Mēģini vēlreiz!")
       print(jautajumi[vieta]['jautajums'])
       atbilde = input()
+    print("Pareizi!")
     punkti+=10/(k+1) if k<2 else 0
-
-
   elif vieta == 'f':
-    print("bla bla bla")
-    
-
-   
+    kontrolpunktsF()
+  elif vieta == 'e':
+    kontrolpunktsE()
+  elif vieta == 'c':
+    kontrolpunktsC()
+  elif vieta == '1' or vieta=='2' or vieta == '3':
+    print("uzlades funkcija")
+  else:
+    print("Tu ievadīji neesošu kontrolpunktu, uzlādes staciju vai komandu.")
 
   #if input("ievadi a")=="a":
     #kontrolpunkti= kontrolpunkti+1
-  
-
-
-
-
-#jāuzlabo, lai vienmēr var paskatīties stāvokli
-print("Ja vēlies pārbaudīt akumulatora stāvokli, spied taustiņu 'a'")
-if input()=="a":
-    print("Uzlādes līmenis ir: "+str(akumulators)+"%")
 #while True:
     #if keyboard.is_pressed("a"):
         #print("Uzlādes līmenis ir: "+str(akumulators)+"%")
         #break
-
-#kontrolpunktu tabula
-
 #kontrolpunkts muzejs
 print("Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš")
 muzejs = input()
@@ -290,119 +426,8 @@ if akumulators == 0:
 #pavadītais laiks spēlē
 
 #bildes, uzlabot, lai randoma atveras un pazūd
-# kontrolpunkts Čakstes laukums 
-print("Kā sauc šo prezidentu(-i)?") 
-from PIL import Image
-im = Image.open(r"prezidenti/vaira.jpg")
-im.show()
-atbilde =input()
-pareizi=["Vaira Vīķe Freiberga","Vaira Vīķe-Freiberga","Vaira Vīķe - Freiberga","vaira vīķe freiberga","vaira vīķe-freiberga", "vaira vīķe - freiberga"]
-if atbilde in pareizi:
-    punkti=punkti+10
-    print("Pareizi!")
-else:
-    print("Mēģini vēlreiz!")
-    from PIL import Image 
-    im = Image.open(r"prezidenti/Zemgals.jpg")
-    im.show()
-    print("Kā sauc šo prezidentu(-i)?") 
-    atbilde=input()
-    if atbilde== "Gustavs Zemgals" or atbilde=="gustavs zemgals":
-        punkti=punkti+5
-        print("Pareizi!")
-    else:
-        print("Mēģini vēlreiz!")
-        from PIL import Image
-        im = Image.open(r"prezidenti/kviesis.png")
-        im.show()
-        print("Kā sauc šo prezidentu(-i)?") 
-        atbilde=input()
-        if atbilde=="Alberts Kviesis"or atbilde=="alberts kviesis":
-            print("Pareizi!")#VAJAG BONUSA PUNKTUS VĒL?
-        else:
-            print("Nepareizi!")
-
-#kontrolpunkts Kursa
-print("Kā sauc šo zivi?\na:plekste\nb:menca\nc:līdaka")
-from PIL import Image
-im = Image.open(r"zivis/plekste.jpg")
-im.show()
-zivs=input()
-if zivs=="a":
-    punkti=punkti+10
-    print("Pareizi!")
-else:
-    print("Mēģini vēlreiz!")
-    print("Kā sauc šo zivi?\na:asaris\nb:lasis\nc:rauda")
-    from PIL import Image
-    im = Image.open(r"zivis/lasis.jpg")
-    im.show() 
-    zivs=input()
-    if zivs=="b":
-        punkti=punkti+5
-        print("Pareizi!")
-    else:
-        print("Nepareizi!")
-
 #kontrolpunkts Juliannas pagalms PABEIGT?padomāt kā var vairākas reizes bez tik daudz koda(loop)
-for i in range(4):
-  gads=random.randrange(1990,2031)
-  menesis=random.randrange(1,13)
-  if menesis in range(1,10):
-      menesis2="0"+str(menesis)
-  if menesis in range(10,13):
-      menesis2=menesis
-  if menesis==2:
-      diena=random.randrange(1,29)
-  elif menesis==4 or menesis==6 or menesis==9 or menesis==11:
-      diena=random.randrange(1,31)
-  else:
-      diena=random.randrange(1,32)
-  if diena in range(1,10):
-      diena1="0"+str(diena)
-  if diena in range(10,32):
-      diena1=diena
-  
-  gads2=random.randrange(1990, gads+1)
-  menesis3=random.randrange(1,menesis+1)
-  if menesis3 in range(1,10):
-      menesis4="0"+str(menesis3)
-  if menesis3 in range(10,13):
-      menesis4=menesis3
-  else:
-      menesis=menesis3 
-  if menesis3==2:
-      diena2=random.randrange(1,diena+1)
-  elif menesis3==4 or menesis3==6 or menesis3==9 or menesis3==11:
-      diena2=random.randrange(1,diena+1)
-  else:
-      diena2=random.randrange(1,diena+1)
-  if diena2 in range(1,10):
-      diena="0"+str(diena2)
-  else:
-      diena=diena2
-  print("Tu esi bāra apsargs. Šodien ir šāds datums: "+str(diena1)+"."+str(menesis2)+"."+str(gads))
-  print("Vai tu drīksti bārā ielaist cilvēku, kura dzimšanas datums: "+str(diena)+"."+str(menesis4)+"."+str(gads2))
-  print("a:drīkst ielaist\nb:nedrīkst ielaist")
-  apsargs = input()
-  if gads - gads2>18:
-    if apsargs=="a":
-      punkti=punkti+10
-      print("Pareizi!")
-    else:
-      print("Nepareizi!")
-  if gads - gads2<18:
-    if apsargs=="b":
-      punkti=punkti+10
-      print("Pareizi!")
-    else:
-      print("Nepareizi!")
-  if gads - gads2==18 and diena1 - diena>0 and menesis2 - menesis>=0 :
-    if apsargs=="a":
-      punkti=punkti+10
-      print("Pareizi!")
-    else:
-      print("Nepareizi!")
+
 print(punkti)
     
 

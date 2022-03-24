@@ -72,14 +72,14 @@ loc = ("faili/kontrolpunktu tabula (bez km).xlsx")
 # To open Workbook
 wb = xlrd.open_workbook(loc)
 sheet = wb.sheet_by_index(0)
-print(sheet.cell_value(1,1))
+print(sheet.cell_value(1,14))
 #vietas indeksi
 indeksi = {
-  'a':1,'b':2,'c':3,'d':4, 'e':5, 'f':6, 'g':7,'h':8,'i':9,'j':10,'1': 11, '2':12, '3':14
+  'a':1,'b':2,'c':3,'d':4, 'e':5, 'f':6, 'g':7,'h':8,'i':9,'j':10,'1': 11, '2':12, '3':13, 'starts':14, 'finišs':14
   }
 #vietas nosaukumi
 nosaukumi = {
-  'a':'Lielais Dzintars','b':'Liepājas muzejs','c':'Kursa','d':'Pētertirgus', 'e':'Čakstes laukums', 'f':'Juliannas pagalms', 'g':'Karostas katedrāle','h':'Grobiņas pilskalns','i':'Zirgu sala','j':'Liepājas slimnīca','1': 'uzlādes stacija "Virši"', '2':'uzlādes stacija "Circle K"', '3':'uzlādes stacija "Viada"'
+  'a':'Lielais Dzintars','b':'Liepājas muzejs','c':'Kursa','d':'Pētertirgus', 'e':'Čakstes laukums', 'f':'Juliannas pagalms', 'g':'Karostas katedrāle','h':'Grobiņas pilskalns','i':'Zirgu sala','j':'Liepājas slimnīca','1': 'uzlādes stacija "Virši"', '2':'uzlādes stacija "Circle K"', '3':'uzlādes stacija "Viada"', 'starts':'Liepājas Olimpiskais centrs', 'finišs':'Ziemeļu mols'
 }
 #kontrolpunkts Kursa
 def kontrolpunktsC():
@@ -228,7 +228,7 @@ def izlade_akumulators(laikapstakli,cels):
 #spēles jēga
 akumulators = 100
 kontrolpunkti = 0
-vieta_tagad="a" 
+vieta_tagad="starts" 
 cels=0
 vieta_biji=[]
 
@@ -249,7 +249,7 @@ while kontrolpunkti < 10:
     print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
   elif vieta in jautajumi:
     vieta_biji.append(vieta)
-    cels = sheet.cell_value(indeksi[vieta_tagad],indeksi[vieta])
+    cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
     print(cels)
     kontrolpunkti = kontrolpunkti+1
     akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
@@ -285,117 +285,6 @@ while kontrolpunkti < 10:
     #if keyboard.is_pressed("a"):
         #print("Uzlādes līmenis ir: "+str(akumulators)+"%")
         #break
-#kontrolpunkts muzejs
-print("Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš")
-muzejs = input()
-if muzejs == "c":
-  print("Pareizi!")
-  punkti = punkti +10
-else:
-  print("Mēģini vēlreiz!")
-  print("Kādā krāsā ir Liepājas muzejs?\na:zils \nb:rozā\nc:zaļš")
-  muzejs= input()
-  if muzejs == "c":
-    print("Pareizi!")
-    punkti = punkti +5
-  else:
-    print("Nepareizi!")
-
-#kontrolpunkts dzintars
-print("Kurš ir koncertzāles'Lielais Dzintars' arhitekts?\na:Folkers Gīnke \nb:Gunars Birkerts\nc:Pauls Makss Berči")
-dzintars = input()
-if dzintars == "a":
-  print("Pareizi!")
-  punkti = punkti+10
-else:
-  print("Mēģini vēlreiz!")
-  print("Kurš ir koncertzāles'Lielais Dzintars' arhitekts?\na:Folkers Gīnke \nb:Gunars Birkerts\nc:Pauls Makss Berči")
-  dzintars= input()
-  if dzintars == "a":
-    print("Pareizi!")
-    punkti=punkti+5
-  else:
-    print("Nepareizi!")
-               
-#kontrolpunkts tirgus
-print("Kā vārdos ir nosaukti Liepājas tirgi?\na:Katrīnas un Jāņa \nb:Annas un Pētera\nc:Marijas un Jāņa")
-tirgus = input()
-if tirgus == "b":
-  print("Pareizi!")
-  punkti=punkti+10
-else:
-  print("Mēģini vēlreiz!")
-  print("Kā vārdos ir nosaukti Liepājas tirgi?\na:Katrīnas un Jāņa \nb:Annas un Pētera\nc:Marijas un Jāņa")
-  tirgus= input()
-  if tirgus == "b":
-    print("Pareizi!")
-    punkti=punkti+5
-  else:
-    print("Nepareizi!")         
-
-#kontrolpunkts karosta
-print("Kādas ticības baznīca atrodas Karostā?\na:katoļu \nb:luterāņu\nc:pareizticīgo")
-karosta = input()
-if karosta == "c":
-  print("Pareizi!")
-  punkti=punkti+10
-else:
-  print("Mēģini vēlreiz!")
-  print("Kādas ticības baznīca atrodas Karostā?\na:katoļu \nb:luterāņu\nc:pareizticīgo")
-  karosta= input()
-  if karosta == "c":
-    print("Pareizi!")
-    punkti=punkti+5
-  else:
-    print("Nepareizi!")
-
-#kontrolpunkts grobiņa
-print("Kura ir Grobiņas lielākā iela?\na:Brīvības iela \nb:Lielā iela\nc:Saules iela")
-grobiņa = input()
-if grobiņa == "b":
-  print("Pareizi!")
-  punkti=punkti+10
-else:
-  print("Mēģini vēlreiz!")
-  print("Kura ir Grobiņas lielākā iela?\na:Brīvības iela \nb:Lielā iela\nc:Saules iela")
-  grobiņa= input()
-  if grobiņa == "b":
-    print("Pareizi!")
-    punkti=punkti+5
-  else:
-    print("Nepareizi!")  
-
-#kontrolpunkts zirgu sala
-print("Kādus dzīvniekus var novērot zirgu salā?\na:putnus \nb:zirgus\nc:roņus")
-zirgusala = input()
-if zirgusala == "a":
-  print("Pareizi!")
-  punkti=punkti+10
-else:
-  print("Mēģini vēlreiz!")
-  print("Kādus dzīvniekus var novērot zirgu salā?\na:putnus \nb:zirgus\nc:roņus")
-  zirgusala= input()
-  if zirgusala == "a":
-    print("Pareizi!")
-    punkti=punkti+5
-  else:
-    print("Nepareizi!")
-
-#kontrolpunkts slimnīca
-print("Kādā secībā jāveic pirmā palīdzība?(atbilžu burtus atdali ar komatu)\na:sauc palīgā \nb:pārliecinies par savu un apkārtējo drošību.\nc:pārbaudi cietušā stāvokli")
-slimnīca = input()
-if slimnīca == "b,c,a":
-  print("Pareizi!")
-  punkti=punkti+10
-else:
-  print("Mēģini vēlreiz!")
-  print("Kādā secībā jāveic pirmā palīdzība?(atbilžu burtus atdali ar komatu)\na:sauc palīgā \nb:pārliecinies par savu un apkārtējo drošību.\nc:pārbaudi cietušā stāvokli")
-  slimnīca= input()
-  if slimnīca == "b,c,a":
-    print("Pareizi!")
-    punkti=punkti+5
-  else:
-    print("Nepareizi!")
 #indentifikatora atbilstības pārbaude
 print("Tev ir bonusa punkti:",str(punkti))
 

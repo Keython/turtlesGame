@@ -225,6 +225,29 @@ def izlade_akumulators(laikapstakli,cels):
     akumulators_izteretais= akumulators
     print("Akumulators izlādējies")
   return akumulators_izteretais
+#evakuators
+def evakuators():
+  global vieta_tagad
+  global punkti
+  vieta_tagad = input("Akumulators ir izlādējies! Nepieciešams evakuators! Par evakuatora izmantošanu tiks noņemti 20 bonusa punkti. Ievadi uzlādes stacijas ciparu(1-3): ")
+  punkti = punkti-20 
+  print("Tu atrodies: "+nosaukumi[vieta_tagad])
+
+#uzlādes stacijas
+def uzlāde():
+  global vieta_tagad
+  global punkti
+  global akumulators
+  print("Tu atrodies:", nosaukumi[vieta_tagad],"\nTev ir sakrāti:", str(punkti),"punkti.\nVienu bonusa punktu var izmantot, lai uzlādētu vienu procentu akumulatora.\nCik bonusa punktus vēlies izmantot?")
+  punkti_uzladei = input()
+  if punkti_uzladei == 'pārbaude':
+    print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
+  elif punkti_uzladei >= 0 and punkti_uzladei <= punkti:
+    akumulators += punkti_uzladei 
+  while punkti_uzladei <= 0 or punkti_uzladei > punkti:
+    input("Tev ir sakrāti", str(punkti),"!\nIevadi, cik punktus vēlies iztērēt priekš uzlādes: ")
+  
+
 #spēles jēga
 akumulators = 100
 kontrolpunkti = 0
@@ -254,30 +277,51 @@ while kontrolpunkti < 10:
     kontrolpunkti = kontrolpunkti+1
     akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
     kilometri = 140*akumulators/100
-    print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
+    if akumulators <=0:
+      evakuators()
     #if atbilde in jautajumi[vieta]['pareiza_atbilde']:
      # punkti=punkti+10
       #print("Pareizi!")
-    print(jautajumi[vieta]['jautajums'])
-    atbilde = input()
-    k=0
-    while atbilde not in jautajumi[vieta]['pareiza_atbilde']:
-      k+=1
-      print("Nepareizi!Mēģini vēlreiz!")
+    if akumulators>0:
       print(jautajumi[vieta]['jautajums'])
       atbilde = input()
-    print("Pareizi!")
-    punkti+=10/(k+1) if k<2 else 0
+      k=0
+      while atbilde not in jautajumi[vieta]['pareiza_atbilde']:
+        k+=1
+        print("Nepareizi!Mēģini vēlreiz!")
+        print(jautajumi[vieta]['jautajums'])
+        atbilde = input()
+      print("Pareizi!")
+      punkti+=10/(k+1) if k<2 else 0
+      vieta_tagad =vieta
   elif vieta == 'f':
     kontrolpunktsF()
+    cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
+    print(cels)
+    vieta_biji.append(vieta)
+    vieta_tagad =vieta
+    kontrolpunkti+=1
   elif vieta == 'e':
     kontrolpunktsE()
+    cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
+    print(cels)
+    vieta_biji.append(vieta)
+    vieta_tagad =vieta
+    kontrolpunkti+=1
   elif vieta == 'c':
     kontrolpunktsC()
+    cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
+    print(cels)
+    vieta_biji.append(vieta)
+    vieta_tagad =vieta
+    kontrolpunkti+=1
   elif vieta == '1' or vieta=='2' or vieta == '3':
+    vieta_tagad = vieta
     print("uzlades funkcija")
+    uzlāde()
   else:
     print("Tu ievadīji neesošu kontrolpunktu, uzlādes staciju vai komandu.")
+  
 
   #if input("ievadi a")=="a":
     #kontrolpunkti= kontrolpunkti+1

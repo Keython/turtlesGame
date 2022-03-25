@@ -29,6 +29,7 @@ print(jautajumi['a']['jautajums'])
 
 #laikapstākļu ģenerators
 import random
+import string
 apstakli=[2, 1]
 laikapstakli = random.choice(apstakli)
 if laikapstakli ==1:
@@ -238,14 +239,37 @@ def uzlāde():
   global vieta_tagad
   global punkti
   global akumulators
-  print("Tu atrodies:", nosaukumi[vieta_tagad],"\nTev ir sakrāti:", str(punkti),"punkti.\nVienu bonusa punktu var izmantot, lai uzlādētu vienu procentu akumulatora.\nCik bonusa punktus vēlies izmantot?")
-  punkti_uzladei = input()
-  if punkti_uzladei == 'pārbaude':
-    print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
-  elif punkti_uzladei >= 0 and punkti_uzladei <= punkti:
-    akumulators += punkti_uzladei 
-  while punkti_uzladei <= 0 or punkti_uzladei > punkti:
-    input("Tev ir sakrāti", str(punkti),"!\nIevadi, cik punktus vēlies iztērēt priekš uzlādes: ")
+  print("Tu atrodies:", nosaukumi[vieta_tagad],"\nVienu bonusa punktu var izmantot, lai uzlādētu vienu procentu akumulatora.")
+  akumulators_uzladets = akumulators
+  l=0
+  while akumulators_uzladets == akumulators:
+    print("Tev ir sakrāti:", str(punkti),"punkti. Cik bonusa punktus vēlies izmantot uzlādei?")
+    punkti_uzladei = input()
+    if punkti_uzladei == 'pārbaude':
+      cels=0
+      akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
+      kilometri = 140*akumulators/100
+      print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
+    #print("Tu atrodies:", nosaukumi[vieta_tagad],"\nTev ir sakrāti:", str(punkti),"punkti.\nVienu bonusa punktu var izmantot, lai uzlādētu vienu procentu akumulatora.\nCik bonusa punktus vēlies izmantot?")
+    #punkti_uzladei = input()
+    elif int(punkti_uzladei) > 0 and int(punkti_uzladei) <= punkti:
+      #akumulators += int(punkti_uzladei)
+      akumulators_uzladets += int(punkti_uzladei)
+      punkti = punkti - int(punkti_uzladei)
+      print("Akumulatora līmenis pēc uzlādes ir:",str(akumulators_uzladets),"%")
+    elif int(punkti_uzladei) < 0 or int(punkti_uzladei) > int(punkti):
+      print("Tev ir sakrāti", str(punkti),"!\nIevadi, cik punktus vēlies iztērēt priekš uzlādes: ")
+    elif int(punkti_uzladei) == 0:
+      akumulators_uzladets=akumulators+1 
+      l+=1
+  if l!=0:
+    akumulators=akumulators_uzladets-1
+  if l == 0:
+    akumulators=akumulators_uzladets
+  print(str(akumulators),"%")
+    
+    
+      
   
 
 #spēles jēga

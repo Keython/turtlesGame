@@ -341,7 +341,6 @@ while kontrolpunkti < 10:
     kontrolpunkti+=1
   elif vieta == '1' or vieta=='2' or vieta == '3':
     vieta_tagad = vieta
-    print("uzlades funkcija")
     uzlāde()
   else:
     print("Tu ievadīji neesošu kontrolpunktu, uzlādes staciju vai komandu.")
@@ -378,10 +377,7 @@ if akumulators == 0:
   uzlades_stacija = input()
   punkti = punkti-20
 #spēles beigas, rezultātu izvade
-
-
 #pavadītais laiks spēlē
-
 #bildes, uzlabot, lai randoma atveras un pazūd
 #kontrolpunkts Juliannas pagalms PABEIGT?padomāt kā var vairākas reizes bez tik daudz koda(loop)
 

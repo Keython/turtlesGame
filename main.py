@@ -7,12 +7,6 @@ print("SPIED 'ENTER', LAI SĀKTU SPĒLI")
 #taustiņu pārbaude
 input() 
 print("starts")
-#import keyboard
-#while True:
-    #if keyboard.is_pressed("space"):
-        #print("STARTS")
-        #break
-# Reading an excel file using Python
 #2dmasīvs ar jautājumiem
 jautajumi = {
   'a':{ 'jautajums':"Kurš ir koncertzāles'Lielais Dzintars' arhitekts?\na:Folkers Gīnke \nb:Gunars Birkerts\nc:Pauls Makss Berči", 'pareiza_atbilde': ['a']},
@@ -25,7 +19,7 @@ jautajumi = {
   'i':{'jautajums':"Kādus dzīvniekus var novērot zirgu salā?\na:putnus \nb:zirgus\nc:roņus", 'pareiza_atbilde':['a']},
   'j':{'jautajums':"Kādā secībā jāveic pirmā palīdzība?(atbilžu burtus atdali ar komatu)\na:sauc palīgā \nb:pārliecinies par savu un apkārtējo drošību.\nc:pārbaudi cietušā stāvokli", 'pareiza_atbilde':['b,c,a']}
 }
-print(jautajumi['a']['jautajums'])
+
 
 #laikapstākļu ģenerators
 import random
@@ -48,12 +42,10 @@ with open('faili/kontrolpunkti.txt') as f:
 #import docx
 #doc = docx.Document('faili/Kontrolpunkts_muzejs.docx')
 #paras = [p.text for p in doc.paragraphs if p.text] 
- 
 #word faila nolasīšana
-import docx
-doci = docx.Document('faili/Kontrolpunkts_muzejs.docx')
+#import docx
+#doci = docx.Document('faili/Kontrolpunkts_muzejs.docx')
 #len(doci.paragraphs)
-print(doci.paragraphs[0-3].text)
 #print(doci.paragraphs[1].text)
 #print(doci.paragraphs[2].text)
 #print(doci.paragraphs[3].text)
@@ -62,18 +54,17 @@ print(doci.paragraphs[0-3].text)
 #open excel
 import pandas as pd
 df = pd.read_excel (r'faili/kontrolpunktu tabula (bez km).xlsx')
-data=pd.read_excel (r'faili/kontrolpunktu tabula (bez km).xlsx')
-dklk = pd.DataFrame(data, columns= ['a','b'])
+dklk = pd.DataFrame(df, columns= ['a','b'])
 print (df)
 import xlrd
  
 # Give the location of the file
 loc = ("faili/kontrolpunktu tabula (bez km).xlsx")
- 
 # To open Workbook
 wb = xlrd.open_workbook(loc)
 sheet = wb.sheet_by_index(0)
-print(sheet.cell_value(1,14))
+#print(sheet.cell_value(1,14))
+
 #vietas indeksi
 indeksi = {
   'a':1,'b':2,'c':3,'d':4, 'e':5, 'f':6, 'g':7,'h':8,'i':9,'j':10,'1': 11, '2':12, '3':13, 'starts':14, 'finišs':14
@@ -112,7 +103,7 @@ def kontrolpunktsE():
   im = Image.open(r"prezidenti/Zemgals.jpg")
   im.show()
   atbilde =input()
-  if atbilde == "gustavs zemgals":
+  if atbilde == "gustavs zemgals" or atbilde=="Gustavs Zemgals":
       global punkti
       punkti=punkti+10
       print("Pareizi!")
@@ -123,7 +114,7 @@ def kontrolpunktsE():
       im.show()
       print("Kā sauc šo prezidentu(-i)?") 
       atbilde=input()
-      if atbilde== "jānis čakste":
+      if atbilde== "jānis čakste" or atbilde=="Jānis Čakste":
           punkti=punkti+5
           print("Pareizi!")
       else:
@@ -215,13 +206,11 @@ def izlade_akumulators(laikapstakli,cels):
   #uztaisīt, lai reālus km var mainīt
   if laikapstakli == 1 and int(cels)<=140:
     akumulators_izteretais = cels*100/140 
-    print(akumulators_izteretais)
   if laikapstakli==1 and int(cels)>140:
     akumulators_izteretais=akumulators
     print("Akumulators izlādējies")
   if laikapstakli == 2 and int(cels)<=80:
     akumulators_izteretais= cels*100/80 
-    print(akumulators_izteretais)
   if laikapstakli==2 and int(cels)>80:
     akumulators_izteretais= akumulators
     print("Akumulators izlādējies")
@@ -232,7 +221,6 @@ def evakuators():
   global punkti
   vieta_tagad = input("Akumulators ir izlādējies! Nepieciešams evakuators! Par evakuatora izmantošanu tiks noņemti 20 bonusa punkti. Ievadi uzlādes stacijas ciparu(1-3): ")
   punkti = punkti-20 
-  print("Tu atrodies: "+nosaukumi[vieta_tagad])
 
 #uzlādes stacijas
 def uzlāde():
@@ -280,7 +268,7 @@ cels=0
 vieta_biji=[]
 
 
-while kontrolpunkti < 10: 
+while kontrolpunkti <= 10: 
   #jāuzlabo, lai zina, kur atrodies
   vieta = input("Uz kurieni dosies? Ievadi atbistošo kontrolpunkta burtu: ")
   while vieta in vieta_biji or vieta==vieta_tagad:
@@ -288,7 +276,7 @@ while kontrolpunkti < 10:
     vieta=input("Uz kurieni dosies? Ievadi atbistošo kontrolpunkta burtu: ")
   #aprēķina akumulatora izlādi atkarībā no laikapstākļiem
   if vieta == 'vieta':
-    print(nosaukumi[vieta_tagad])
+    print("Tu atrodies: "+nosaukumi[vieta_tagad])
   elif vieta == 'pārbaude':
     cels=0
     akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
@@ -297,12 +285,12 @@ while kontrolpunkti < 10:
   elif vieta in jautajumi:
     vieta_biji.append(vieta)
     cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
-    print(cels)
     kontrolpunkti = kontrolpunkti+1
     akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
     kilometri = 140*akumulators/100
     if akumulators <=0:
       evakuators()
+      uzlāde()
     #if atbilde in jautajumi[vieta]['pareiza_atbilde']:
      # punkti=punkti+10
       #print("Pareizi!")
@@ -321,67 +309,45 @@ while kontrolpunkti < 10:
   elif vieta == 'f':
     kontrolpunktsF()
     cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
-    print(cels)
     vieta_biji.append(vieta)
+    akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
+    kilometri = 140*akumulators/100
     vieta_tagad =vieta
     kontrolpunkti+=1
   elif vieta == 'e':
     kontrolpunktsE()
     cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
-    print(cels)
     vieta_biji.append(vieta)
+    akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
+    kilometri = 140*akumulators/100
     vieta_tagad =vieta
     kontrolpunkti+=1
   elif vieta == 'c':
     kontrolpunktsC()
     cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
-    print(cels)
     vieta_biji.append(vieta)
+    akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
+    kilometri = 140*akumulators/100
     vieta_tagad =vieta
     kontrolpunkti+=1
   elif vieta == '1' or vieta=='2' or vieta == '3':
+    cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
+    akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
+    kilometri = 140*akumulators/100
     vieta_tagad = vieta
     uzlāde()
+  elif len(vieta_biji)==10:
+    print("Tagad vari doties tikai uz finišu!")
+    kontrolpunkti+=1
+    cels=sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
+    akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
+    kilometri = 140*akumulators/100
   else:
     print("Tu ievadīji neesošu kontrolpunktu, uzlādes staciju vai komandu.")
   
-
-  #if input("ievadi a")=="a":
-    #kontrolpunkti= kontrolpunkti+1
-#while True:
-    #if keyboard.is_pressed("a"):
-        #print("Uzlādes līmenis ir: "+str(akumulators)+"%")
-        #break
-#indentifikatora atbilstības pārbaude
-print("Tev ir bonusa punkti:",str(punkti))
-
-
-#akumolatora uzskaite, a0=100%, vienmēr var uzspiest
-
-
-#laikapstākļu faktors mašīnas nobraukumam
-
-
-#uzlādes līmeņa, km nolasīšana jebkurā laikā
-
-
-#10 kotrolpunkti, uzlādes stacija, uzdevumi
-
-
-#bonusa punkti auto uzlādei par atrisinātu uzdevumu
-
-
-#evakuators
-if akumulators == 0:
-  print("Akumulators ir izlādējies! Nepieciešams evakuators! Ievadi uzlādes stacijas identifikatoru!")
-  uzlades_stacija = input()
-  punkti = punkti-20
+print("Apsveicam, visi kontrolpunkti ir apmeklēti!\nTev ir bonusa punkti:",str(punkti))
 #spēles beigas, rezultātu izvade
 #pavadītais laiks spēlē
-#bildes, uzlabot, lai randoma atveras un pazūd
-#kontrolpunkts Juliannas pagalms PABEIGT?padomāt kā var vairākas reizes bez tik daudz koda(loop)
-
-print(punkti)
     
 
 

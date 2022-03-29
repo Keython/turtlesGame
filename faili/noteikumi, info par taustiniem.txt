@@ -1,2 +1,4 @@
-SPIED 'SPACE', LAI SĀKTU SPĒLI
-Ja vēlies pārbaudīt akumulatora stāvokli, spied taustiņu 'a'
+SPIED 'ENTER', LAI SĀKTU SPĒLI
+Ja vēlies pārbaudīt akumulatora stāvokli, ieraksti "pārbaude"
+Ja vēlies pārbaudīt, kur atrodies, ieraksti "vieta"
+

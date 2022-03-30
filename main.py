@@ -2,10 +2,12 @@ print("TURTLES' RALLY LIEPĀJA")
 #vārdi, sākums
 
 print("Spēles izstrādātāji: Paula Lībeka, Loreta Aleksejeva, Keita Laimiņa")
+print("Lai izlasītu spēles noteikumus, jāieraksta: noteikumi")
 print("SPIED 'ENTER', LAI SĀKTU SPĒLI")
 
 #taustiņu pārbaude
-input() 
+while input() == "noteikumi":
+  print("SPIED taustiņu - ENTER -, LAI SĀKTU SPĒLI\nAkumulatoru un atrašanās vietu , un noteikumus nevar pārbaudīt kontrolpunkta uzdevuma izpildes laikā!\nJa vēlies pārbaudīt akumulatora stāvokli, ieraksti : pārbaude\nJa vēlies pārbaudīt, kur atrodies, ieraksti : vieta\nJa vēlies izlasīt noteikumus, ieraksti : noteikumi\nSpēle beidzas, kad izieti visi kontrolpunkti.\nNo starta nevar doties uz kādu no uzlādes stacijām.\nUz finišu var doties tikai, kad izieti visi kontrolpunkti.") 
 print("starts")
 #2dmasīvs ar jautājumiem
 jautajumi = {
@@ -53,13 +55,13 @@ with open('faili/kontrolpunkti.txt') as f:
 #print(doci.paragraphs[0].runs[0].text)
 #open excel
 import pandas as pd
-df = pd.read_excel (r'faili/kontrolpunktu tabula (bez km).xlsx')
+df = pd.read_excel (r'faili/kontrolpunktu tabula (bez km) .xlsx')
 dklk = pd.DataFrame(df, columns= ['a','b'])
 print (df)
 import xlrd
  
 # Give the location of the file
-loc = ("faili/kontrolpunktu tabula (bez km).xlsx")
+loc = ("faili/kontrolpunktu tabula (bez km) .xlsx")
 # To open Workbook
 wb = xlrd.open_workbook(loc)
 sheet = wb.sheet_by_index(0)
@@ -281,6 +283,8 @@ while kontrolpunkti <= 10:
     akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
     kilometri = 140*akumulators/100
     print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
+  elif vieta == 'noteikumi':
+    print("Akumulatoru un atrašanās vietu , un noteikumus nevar pārbaudīt kontrolpunkta uzdevuma izpildes laikā!\nGalvenajā tabulā norādīts attālums kilometros starp kontrolpunktiem un uzlādes stacijām.\nJa vēlies pārbaudīt akumulatora stāvokli, ieraksti : pārbaude\nJa vēlies pārbaudīt, kur atrodies, ieraksti : vieta\nJa vēlies izlasīt noteikumus, ieraksti : noteikumi\nSpēle beidzas, kad izieti visi kontrolpunkti.\nNo starta nevar doties uz kādu no uzlādes stacijām.\nUz finišu var doties tikai, kad izieti visi kontrolpunkti.") 
   elif vieta in jautajumi:
     vieta_biji.append(vieta)
     cels = sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])

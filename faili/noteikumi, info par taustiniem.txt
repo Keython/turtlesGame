@@ -1,4 +1,10 @@
 SPIED 'ENTER', LAI SĀKTU SPĒLI
+Akumulatoru un atrašanās vietu , un noteikumus nevar pārbaudīt kontrolpunkta uzdevuma izpildes laikā!
 Ja vēlies pārbaudīt akumulatora stāvokli, ieraksti "pārbaude"
 Ja vēlies pārbaudīt, kur atrodies, ieraksti "vieta"
+Ja vēlies izlasīt noteikumus, ieraksti "noteikumi"
+Spēle beidzas, kad izieti visi kontrolpunkti.
+No starta nevar doties uz kādu no uzlādes stacijām.
+Uz finišu var doties tikai, kad izieti visi kontrolpunkti.
+
 

@@ -203,7 +203,7 @@ def kontrolpunktsF():
 #akumulatora izlāde
 akumulators = 100
 def izlade_akumulators(laikapstakli,cels):
-  #uztaisīt, lai reālus km var mainīt
+  
   if laikapstakli == 1 and int(cels)<=140:
     akumulators_izteretais = cels*100/140 
   if laikapstakli==1 and int(cels)>140:
@@ -254,7 +254,7 @@ def uzlāde():
     akumulators=akumulators_uzladets-1
   if l == 0:
     akumulators=akumulators_uzladets
-  print(str(akumulators),"%")
+ 
     
     
       
@@ -269,12 +269,11 @@ vieta_biji=[]
 
 
 while kontrolpunkti <= 10: 
-  #jāuzlabo, lai zina, kur atrodies
+  
   vieta = input("Uz kurieni dosies? Ievadi atbistošo kontrolpunkta burtu: ")
   while vieta in vieta_biji or vieta==vieta_tagad:
     print("Tu jau vietā -",nosaukumi[vieta],"- esi bijis.")
     vieta=input("Uz kurieni dosies? Ievadi atbistošo kontrolpunkta burtu: ")
-  #aprēķina akumulatora izlādi atkarībā no laikapstākļiem
   if vieta == 'vieta':
     print("Tu atrodies: "+nosaukumi[vieta_tagad])
   elif vieta == 'pārbaude':
@@ -289,6 +288,7 @@ while kontrolpunkti <= 10:
     akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
     kilometri = 140*akumulators/100
     if akumulators <=0:
+      akumulators=0
       evakuators()
       uzlāde()
     #if atbilde in jautajumi[vieta]['pareiza_atbilde']:

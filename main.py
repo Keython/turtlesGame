@@ -356,7 +356,6 @@ while kontrolpunkti <= 10:
     if akumulators <=0:
       akumulators=0
       evakuators()
-      uzlāde()
     vieta_tagad = vieta
     uzlāde()
   else:

@@ -34,7 +34,7 @@ if laikapstakli == 2:
   print("Laikapstākļi ir slikti")
 
 global punkti
-punkti = 10 
+punkti = 40 
 
 #kontrolpunktu faila nolasīšana
 with open('faili/kontrolpunkti.txt') as f:
@@ -143,7 +143,7 @@ def kontrolpunktsE():
 #kontrolpunkts Juliannas pagalms f
 def kontrolpunktsF():
   global punkti
-  for i in range(5): 
+  for i in range(3): 
     gads=random.randrange(1990,2031)
     menesis=random.randrange(1,13)
     if menesis in range(1,10):
@@ -161,7 +161,7 @@ def kontrolpunktsF():
     if diena in range(10,32):
         diena1=diena
 
-    gads2=random.randrange(1980, gads-10)
+    gads2=random.randrange(1980, (gads-10))
     menesis3=random.randrange(1,menesis+1)
     if menesis3 in range(1,10):
         menesis4="0"+str(menesis3)
@@ -206,14 +206,14 @@ def kontrolpunktsF():
 akumulators = 100
 def izlade_akumulators(laikapstakli,cels):
   
-  if laikapstakli == 1 and int(cels)<=140:
+  if laikapstakli == 1 and float(cels)<=140:
     akumulators_izteretais = cels*100/140 
-  if laikapstakli==1 and int(cels)>140:
+  if laikapstakli==1 and float(cels)>140:
     akumulators_izteretais=akumulators
     print("Akumulators izlādējies")
-  if laikapstakli == 2 and int(cels)<=80:
+  if laikapstakli == 2 and float(cels)<=80:
     akumulators_izteretais= cels*100/80 
-  if laikapstakli==2 and int(cels)>80:
+  if laikapstakli==2 and float(cels)>80:
     akumulators_izteretais= akumulators
     print("Akumulators izlādējies")
   return akumulators_izteretais
@@ -221,48 +221,53 @@ def izlade_akumulators(laikapstakli,cels):
 def evakuators():
   global vieta_tagad
   global punkti
-  vieta_tagad = input("Akumulators ir izlādējies! Nepieciešams evakuators! Par evakuatora izmantošanu tiks noņemti 20 bonusa punkti. Ievadi uzlādes stacijas ciparu(1-3): ")
+#neiet!!!!!!!!!!!
+  vieta_tagad = str(input("Akumulators ir izlādējies! Nepieciešams evakuators! Par evakuatora izmantošanu tiks noņemti 20 bonusa punkti. Ievadi uzlādes stacijas ciparu(1-3): ") )
+  while not (vieta_tagad=="1" or vieta_tagad=="2" or vieta_tagad=="3"):
+    vieta_tagad = input("Akumulators ir izlādējies! Nepieciešams evakuators! Par evakuatora izmantošanu tiks noņemti 20 bonusa punkti. Ievadi uzlādes stacijas ciparu(1-3): ")
   punkti = punkti-20 
+  
 
 #uzlādes stacijas
 def uzlāde():
   global vieta_tagad
   global punkti
   global akumulators
-  if akumulators <= 0 and punkti <=0:
-    print("Nevar veikt uzlādi.")
-  else:
-    print("Tu atrodies:", nosaukumi[vieta_tagad],"\nVienu bonusa punktu var izmantot, lai uzlādētu vienu procentu akumulatora.")
-    akumulators_uzladets = akumulators
-    l=0
-    while akumulators_uzladets == akumulators:
-      print("Tev ir sakrāti:", str(punkti),"punkti. Cik bonusa punktus vēlies izmantot uzlādei?")
-      punkti_uzladei = input()
-      if punkti_uzladei == 'pārbaude':
-        cels=0
-        akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
-        kilometri = 140*akumulators/100
-        print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
+  print("Tu atrodies:", nosaukumi[vieta_tagad],"\nVienu bonusa punktu var izmantot, lai uzlādētu vienu procentu akumulatora.")
+  akumulators_uzladets = akumulators
+  l=0
+  while akumulators_uzladets == akumulators:
+    print("Tev ir sakrāti:", str(punkti),"punkti. Cik bonusa punktus vēlies izmantot uzlādei?")
+    punkti_uzladei = input()
+    if punkti_uzladei == 'pārbaude':
+      cels=0
+      akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
+      kilometri = 140*akumulators/100
+      print("uzlādes līmenis ir "+str(akumulators)+"%\nvēl var nobraukt "+str(kilometri)+" km")
       #print("Tu atrodies:", nosaukumi[vieta_tagad],"\nTev ir sakrāti:", str(punkti),"punkti.\nVienu bonusa punktu var izmantot, lai uzlādētu vienu procentu akumulatora.\nCik bonusa punktus vēlies izmantot?")
       #punkti_uzladei = input()
-      elif int(punkti_uzladei) > 0 and int(punkti_uzladei) <= punkti:
-        #akumulators += int(punkti_uzladei)
-        akumulators_uzladets += int(punkti_uzladei)
-        punkti = punkti - int(punkti_uzladei)
-        print("Akumulatora līmenis pēc uzlādes ir:",str(akumulators_uzladets),"%")
-      elif int(punkti_uzladei) < 0 or int(punkti_uzladei) > int(punkti):
-        print("Tev ir sakrāti", str(punkti),"!\nIevadi, cik punktus vēlies iztērēt priekš uzlādes: ")
-      elif int(punkti_uzladei) == 0:
+    if punkti <= 0:
+      print("nevar veikt uzlādi!")#mēģinājums
+      akumulators_uzladets=akumulators+1
+      l+=1
+    elif int(punkti_uzladei) > 0 and int(punkti_uzladei) <= punkti:
+      #akumulators += int(punkti_uzladei)
+      akumulators_uzladets += int(punkti_uzladei)
+      punkti = punkti - int(punkti_uzladei)
+      print("Akumulatora līmenis pēc uzlādes ir:",str(akumulators_uzladets),"%")
+    elif int(punkti_uzladei) < 0 or int(punkti_uzladei) > int(punkti):
+      print("Tev ir sakrāti", str(punkti),"!\nIevadi, cik punktus vēlies iztērēt priekš uzlādes: ")
+    elif int(punkti_uzladei) == 0:
+      if akumulators<=0:
+        print("Akumulatoru nepieciešams uzlādēt!")
+        akumulators_uzladets=akumulators
+      else:
         akumulators_uzladets=akumulators+1 
         l+=1
-    if l!=0:
-      akumulators=akumulators_uzladets-1
-    if l == 0:
-      akumulators=akumulators_uzladets
-  
-    
-    
-      
+  if l!=0:
+    akumulators=akumulators_uzladets-1
+  if l == 0:
+    akumulators=akumulators_uzladets
   
 
 #spēles jēga
@@ -361,20 +366,22 @@ while kontrolpunkti <= 10:
   else:
     print("Tu ievadīji neesošu kontrolpunktu, uzlādes staciju vai komandu.")
   if len(vieta_biji)==10:
-    print(vieta_biji)
     print("Tagad vari doties tikai uz finišu!")
+    vieta_tagad = vieta
     kontrolpunkti+=1
-    cels=sheet.cell_value(indeksi[vieta],indeksi[vieta_tagad])
+    cels=sheet.cell_value(indeksi['finišs'],indeksi[vieta_tagad])
     akumulators = round(akumulators-izlade_akumulators(laikapstakli, cels))
     kilometri = 140*akumulators/100
-  if akumulators <= 0 and punkti <=0:
-    print("SPĒLE BEIGUSIES. Tev nav bonusa punktu un ir izlādējies akumulators :(")
-    kontrolpunkti=14
+    vieta_tagad='finišs'
+  if punkti <=0:
+    if akumulators<=0:
+      print("SPĒLE BEIGUSIES. Tev nav bonusa punktu un ir izlādējies akumulators :(")
+      kontrolpunkti=14
     
 
 if kontrolpunkti ==14:
   print("Veiksmi nākamreiz!")
-elif kontrolpunkti==10:
+elif kontrolpunkti==11:
   print("Apsveicam, visi kontrolpunkti ir apmeklēti!\nTev ir bonusa punkti:",str(punkti))
 #spēles beigas, rezultātu izvade
 #pavadītais laiks spēlē

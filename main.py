@@ -280,7 +280,7 @@ vieta_biji=[]
 
 while kontrolpunkti <= 10: 
   
-  vieta = input("Uz kurieni dosies? Ievadi atbistošo kontrolpunkta burtu: ")
+  vieta = input("Uz kurieni dosies? Ievadi atbistošo kontrolpunkta burtu vai uzlādes stacijas ciparu: ")
   while vieta in vieta_biji or vieta==vieta_tagad:
     print("Tu jau vietā -",nosaukumi[vieta],"- esi bijis.")
     vieta=input("Uz kurieni dosies? Ievadi atbistošo kontrolpunkta burtu: ")
@@ -383,6 +383,7 @@ if kontrolpunkti ==14:
   print("Veiksmi nākamreiz!")
 elif kontrolpunkti==11:
   print("Apsveicam, visi kontrolpunkti ir apmeklēti!\nTev ir bonusa punkti:",str(punkti))
+  print("Paldies par spēli!")
 #spēles beigas, rezultātu izvade
 #pavadītais laiks spēlē
     

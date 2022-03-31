@@ -25,7 +25,7 @@ jautajumi = {
 
 #laikapstākļu ģenerators
 import random
-import string
+#import string
 apstakli=[2, 1]
 laikapstakli = random.choice(apstakli)
 if laikapstakli ==1:

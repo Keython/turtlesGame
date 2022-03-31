@@ -161,7 +161,7 @@ def kontrolpunktsF():
     if diena in range(10,32):
         diena1=diena
 
-    gads2=random.randrange(1980, (gads-10))
+    gads2=random.randrange(1980, (gads-9))
     menesis3=random.randrange(1,menesis+1)
     if menesis3 in range(1,10):
         menesis4="0"+str(menesis3)
@@ -384,6 +384,7 @@ elif kontrolpunkti==11:
   print("Apsveicam, visi kontrolpunkti ir apmeklēti!\nTev ir bonusa punkti:",str(punkti))
   print("Paldies par spēli!")
 vards =input("Ievadiet savu vārdu: ")
+print("Apsveicam,",vards)
 vardi=[]
 rezultati=[]
 vardi.append(vards)

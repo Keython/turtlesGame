@@ -221,7 +221,6 @@ def izlade_akumulators(laikapstakli,cels):
 def evakuators():
   global vieta_tagad
   global punkti
-#neiet!!!!!!!!!!!
   vieta_tagad = str(input("Akumulators ir izlādējies! Nepieciešams evakuators! Par evakuatora izmantošanu tiks noņemti 20 bonusa punkti. Ievadi uzlādes stacijas ciparu(1-3): ") )
   while not (vieta_tagad=="1" or vieta_tagad=="2" or vieta_tagad=="3"):
     vieta_tagad = input("Akumulators ir izlādējies! Nepieciešams evakuators! Par evakuatora izmantošanu tiks noņemti 20 bonusa punkti. Ievadi uzlādes stacijas ciparu(1-3): ")
@@ -384,6 +383,12 @@ if kontrolpunkti ==14:
 elif kontrolpunkti==11:
   print("Apsveicam, visi kontrolpunkti ir apmeklēti!\nTev ir bonusa punkti:",str(punkti))
   print("Paldies par spēli!")
+vards =input("Ievadiet savu vārdu: ")
+vardi=[]
+rezultati=[]
+vardi.append(vards)
+rezultati.append(punkti)
+
 #spēles beigas, rezultātu izvade
 #pavadītais laiks spēlē
     
